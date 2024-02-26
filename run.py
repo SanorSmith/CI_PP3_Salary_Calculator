@@ -78,11 +78,15 @@ def push_data_to_spreadsheet(name, salary_data):
     """
     Function to push data to the spreadsheet using append_row.
     """
-    
-    worksheet = SHEET.worksheet('total_paid_lifts')
-    salary_data_int = [int(salary) for salary in salary_data]
-    new_row = [name] + salary_data_int
-    worksheet.append_row(new_row)
+    try:
+        print ("updating salary worksheet...\n")
+        worksheet = SHEET.worksheet('total_paid_lifts')
+        salary_data_int = [int(salary) for salary in salary_data]
+        new_row = [name] + salary_data_int
+        worksheet.append_row(new_row)
+        print("Salary worksheet updated successfully. \n")
+    except Exception as e:
+        print(f"An error occurred: {e}")
     
 
 
