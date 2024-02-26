@@ -24,10 +24,15 @@ def validate_name(name):
         raise ValueError("The name must contain only letters.")
     return name.strip()
 
+def validate_days(days):
+    """
+    Validate the number of days.
+    """
+    if not 1 <= days <= 31:
+        raise ValueError("The number of days must be between 1 and 31.")
+    return days
 
 
-
-#get input data from the user 
 def get_user_input():
     """
     Function to get user input for name, number of days, and daily salary.
@@ -39,7 +44,12 @@ def get_user_input():
             except ValueError as e:
                 print(f"Input error: {e}")
            
-    days = int(input("Enter the number of days (up to 31): "))
+    while True:
+        try:
+            days = validate_days(int(input("Enter the number of days (up to 31): ")))
+            break
+        except ValueError as e:
+            print(f"Input error: {e}")
            
     salary_data = []
     for day in range(1, days + 1):                
