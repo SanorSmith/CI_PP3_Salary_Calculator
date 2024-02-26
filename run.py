@@ -13,12 +13,31 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('salary_calculater')
 
 
+#Validate User input data function 
+def validate_name(name):
+    """
+    Validate the provided name. The name should be non-empty and contain only letters.
+    """
+    if not name.strip():
+        raise ValueError("The name cannot be empty.")
+    if not name.replace(' ', '').isalpha():  # Allowing spaces in names
+        raise ValueError("The name must contain only letters.")
+    return name.strip()
+
+
+
+
+#get input data from the user 
 def get_user_input():
     """
     Function to get user input for name, number of days, and daily salary.
     """
-   
-    name = input("Enter your name: ")
+    while True:
+            try:
+                name = validate_name(input("Enter your name: "))
+                break
+            except ValueError as e:
+                print(f"Input error: {e}")
            
     days = int(input("Enter the number of days (up to 31): "))
            
