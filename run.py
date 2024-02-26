@@ -12,6 +12,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('salary_calculater')
 
+                                                                                                                                                                                 
 
 #Validate User input data function 
 def validate_name(name):
@@ -87,9 +88,22 @@ def push_data_to_spreadsheet(name, salary_data):
         print("Salary worksheet updated successfully. \n")
     except Exception as e:
         print(f"An error occurred: {e}")
-    
+
+def print_result():
+    """
+    Function to print out the result.
+    """
+    try:
+        worksheet = SHEET.worksheet('total_paid_lifts')
+        data = worksheet.get_all_values()
+        print("Data in 'total_paid_lifts':")
+        for row in data:
+            print(row)
+    except Exception as e:
+        print(f"An error occurred: {e}")   
 
 
 #Call 
 name, salary_data = get_user_input()
 push_data_to_spreadsheet(name, salary_data)
+print_result()
