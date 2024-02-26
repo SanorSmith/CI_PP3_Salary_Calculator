@@ -88,7 +88,21 @@ def push_data_to_spreadsheet(name, salary_data):
         print("Salary worksheet updated successfully. \n")
     except Exception as e:
         print(f"An error occurred: {e}")
+        
+def sum_salary_from_spreadsheet():
+    """
+    Function to sum up salary data from the spreadsheet.
+    """
+    
+    worksheet = SHEET.worksheet('total_paid_lifts')
+    data = worksheet.get_all_values()
 
+    total_salary = 0
+    for row in data[1:]:  # Skip the header row if there is one
+        total_salary += sum(int(value) for value in row[1:] if value.isdigit())
+
+    return total_salary
+        
 def print_result():
     """
     Function to print out the result.
@@ -100,10 +114,24 @@ def print_result():
         for row in data:
             print(row)
     except Exception as e:
-        print(f"An error occurred: {e}")   
+        print(f"An error occurred: {e}")  
+
+def reset_spreadsheet():
+    """
+    Function to reset the spreadsheet by clearing all its contents.
+    """
+    
+    worksheet = SHEET.worksheet('total_paid_lifts')        
+    worksheet.clear()
+    print("Spreadsheet has been reset.")
+    
+ 
 
 
 #Call 
 name, salary_data = get_user_input()
 push_data_to_spreadsheet(name, salary_data)
 print_result()
+total_salary = sum_salary_from_spreadsheet()
+print(f"Total Salary: {total_salary}")
+reset_spreadsheet()
