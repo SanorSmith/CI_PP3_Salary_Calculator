@@ -128,10 +128,15 @@ def reset_spreadsheet():
  
 
 
-#Call 
-name, salary_data = get_user_input()
-push_data_to_spreadsheet(name, salary_data)
-print_result()
-total_salary = sum_salary_from_spreadsheet()
-print(f"Total Salary: {total_salary}")
-reset_spreadsheet()
+def main(): 
+    """
+    Program main function
+    """
+    name, salary_data = get_user_input()
+    push_data_to_spreadsheet(name, salary_data)
+    print_result()
+    total_salary = sum_salary_from_spreadsheet()
+    print(f"Total Salary: {total_salary}")
+    #reset_spreadsheet()
+    
+main()
