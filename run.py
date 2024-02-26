@@ -64,12 +64,28 @@ def get_user_input():
             try:
                 
                 salary = validate_salary(int(input(f"Enter salary for day {day}: ")))
+                
                 salary_data.append(salary)
+                
                 break
             except ValueError as e:
                 print(f"Input error: {e}")               
 
     return name, salary_data
 
+
+def push_data_to_spreadsheet(name, salary_data):
+    """
+    Function to push data to the spreadsheet using append_row.
+    """
+    
+    worksheet = SHEET.worksheet('total_paid_lifts')
+    salary_data_int = [int(salary) for salary in salary_data]
+    new_row = [name] + salary_data_int
+    worksheet.append_row(new_row)
+    
+
+
 #Call 
 name, salary_data = get_user_input()
+push_data_to_spreadsheet(name, salary_data)
