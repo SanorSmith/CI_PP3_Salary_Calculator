@@ -32,6 +32,13 @@ def validate_days(days):
         raise ValueError("The number of days must be between 1 and 31.")
     return days
 
+def validate_salary(salary):
+    """
+    Validate the salary amount.
+    """
+    if salary < 0:
+        raise ValueError("Salary cannot be negative.")
+    return salary
 
 def get_user_input():
     """
@@ -52,9 +59,15 @@ def get_user_input():
             print(f"Input error: {e}")
            
     salary_data = []
-    for day in range(1, days + 1):                
-                salary = int(input(f"Enter salary for day {day}: "))
-                salary_data.append(salary)               
+    for day in range(1, days + 1):
+        while True:
+            try:
+                
+                salary = validate_salary(int(input(f"Enter salary for day {day}: ")))
+                salary_data.append(salary)
+                break
+            except ValueError as e:
+                print(f"Input error: {e}")               
 
     return name, salary_data
 
