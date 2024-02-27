@@ -98,10 +98,24 @@ def sum_salary_from_spreadsheet():
     data = worksheet.get_all_values()
 
     total_salary = 0
-    for row in data[1:]:  # Skip the header row if there is one
+    for row in data[0:]:  # Skip the header row if there is one
         total_salary += sum(int(value) for value in row[1:] if value.isdigit())
 
     return total_salary
+
+def calculate_vat_and_salary(total_salary):
+    """
+    Function to calculate VAT and remaining salary based on the user's job selection.
+    """
+    
+    vat_job_worksheet = SHEET.worksheet('vat_job_list')        
+    job_vat_data = vat_job_worksheet.get_all_values()
+
+    print("Job List:")
+    for index, (job, vat_rate) in enumerate(job_vat_data, start=1):
+        print(f"{index}. {job}")
+
+
         
 def print_result():
     """
@@ -137,6 +151,7 @@ def main():
     print_result()
     total_salary = sum_salary_from_spreadsheet()
     print(f"Total Salary: {total_salary}")
-    #reset_spreadsheet()
+    calculate_vat_and_salary(total_salary)
+    reset_spreadsheet()
     
 main()
