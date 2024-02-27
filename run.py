@@ -41,6 +41,19 @@ def validate_salary(salary):
         raise ValueError("Salary cannot be negative.")
     return salary
 
+def validate_job_choice(choice, max_choice):
+    """
+    Validate the user's job choice input.
+    """
+    if not choice.isdigit():
+        raise ValueError("Input must be a number.")
+    
+    choice = int(choice)
+    if not 1 <= choice <= max_choice:
+        raise ValueError(f"Input must be a number between 1 and {max_choice}.")
+    
+    return choice
+
 def get_user_input():
     """
     Function to get user input for name, number of days, and daily salary.
@@ -107,28 +120,39 @@ def calculate_vat_and_salary(total_salary):
     """
     Function to calculate VAT and remaining salary based on the user's job selection.
     """
-    
-    vat_job_worksheet = SHEET.worksheet('vat_job_list')        
-    job_vat_data = vat_job_worksheet.get_all_values()
+    try:
+        vat_job_worksheet = SHEET.worksheet('vat_job_list')        
+        job_vat_data = vat_job_worksheet.get_all_values()
 
-    print("Job List:")
-    for index, (job, vat_rate) in enumerate(job_vat_data, start=1):
-        print(f"{index}. {job}")
-        
-        
-    # Get user's job choice
-    job_choice = int(input("Select your job by entering the corresponding number: "))
-    selected_job, selected_vat_rate = job_vat_data[job_choice - 1]
-    # Calculate VAT and remaining salary
-    vat_rate = float(selected_vat_rate)
-    vat_amount = total_salary * (vat_rate)
-    remaining_salary = total_salary - vat_amount
+        print("Job List:")
+        for index, (job, vat_rate) in enumerate(job_vat_data, start=1):
+            print(f"{index}. {job}")
+            
+            
+        # Get user's job choice
+        while True:
+            try:
+                job_choice_input = input("Select your job by entering the corresponding number: ")
+                job_choice = validate_job_choice(job_choice_input, len(job_vat_data))
+                break
+            except ValueError as e:
+                print(f"Input error: {e}")
 
-    # Display results
-    print(f"Selected Job: {selected_job}")
-    print(f"VAT Rate: {vat_rate}%")
-    print(f"VAT Amount: {vat_amount}")
-    print(f"Remaining Salary: {remaining_salary}")
+        selected_job, selected_vat_rate = job_vat_data[job_choice - 1]
+        # Calculate VAT and remaining salary
+        vat_rate = float(selected_vat_rate)
+        vat_amount = total_salary * (vat_rate)
+        remaining_salary = total_salary - vat_amount
+
+        # Display results
+        print(f"Selected Job: {selected_job}")
+        print(f"VAT Rate: {vat_rate}%")
+        print(f"VAT Amount: {vat_amount}")
+        print(f"Remaining Salary: {remaining_salary}")
+        
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 
 
         
