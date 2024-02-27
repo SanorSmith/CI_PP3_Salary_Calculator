@@ -176,23 +176,41 @@ def calculate_net_salary(remaining_salary):
     """
     Function to calculate and display net salary after tax deduction based on the user's county selection.
     """
-    
-       
-    counties_worksheet = SHEET.worksheet('counties_tax_rate')        
-    counties_data = counties_worksheet.get_all_values()        
-    print("Counties List:")
-    for index, (county, _) in enumerate(counties_data, start=1):
-        print(f"{index}. {county}")        
-    while True:
-        try:
-            county_choice_input = input("Select your county by entering the corresponding number: ")
-            county_choice = validate_choice(county_choice_input, len(counties_data))
-            break
-        except ValueError as e:
+    try:
+        # Access the worksheet
+        counties_worksheet = SHEET.worksheet('counties_tax_rate')
+        # Get all counties names and tax rates
+        counties_data = counties_worksheet.get_all_values()
+
+        # Display counties to the user
+        print("Counties List:")
+        for index, (county, _) in enumerate(counties_data, start=1):
+            print(f"{index}. {county}")
+
+        # Get and validate user's county choice
+        while True:
+            try:
+                county_choice_input = input("Select your county by entering the corresponding number: ")
+                county_choice = validate_choice(county_choice_input, len(counties_data))
+                break
+            except ValueError as e:
                 print(f"Input error: {e}")
-    
-    selected_county, selected_tax_rate = counties_data[county_choice - 1]
-    print(f"Selected County: {selected_county}")
+
+        selected_county, selected_tax_rate = counties_data[county_choice - 1]
+
+        # Calculate tax and net salary
+        tax_rate = float(selected_tax_rate.replace(',','.'))
+        tax_amount = remaining_salary * (tax_rate / 100)
+        net_salary = remaining_salary - tax_amount
+
+        # Display results
+        print(f"Selected County: {selected_county}")
+        print(f"Tax Rate: {tax_rate}%")
+        print(f"Tax Amount: {tax_amount}")
+        print(f"Net Salary: {net_salary}")
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
         
         
 def print_result():
