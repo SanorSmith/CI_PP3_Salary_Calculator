@@ -119,8 +119,16 @@ def calculate_vat_and_salary(total_salary):
     # Get user's job choice
     job_choice = int(input("Select your job by entering the corresponding number: "))
     selected_job, selected_vat_rate = job_vat_data[job_choice - 1]
+    # Calculate VAT and remaining salary
+    vat_rate = float(selected_vat_rate)
+    vat_amount = total_salary * (vat_rate)
+    remaining_salary = total_salary - vat_amount
 
-
+    # Display results
+    print(f"Selected Job: {selected_job}")
+    print(f"VAT Rate: {vat_rate}%")
+    print(f"VAT Amount: {vat_amount}")
+    print(f"Remaining Salary: {remaining_salary}")
 
 
         
