@@ -55,6 +55,18 @@ def validate_job_choice(choice, max_choice):
     return choice
 
 
+def validate_choice(choice, max_choice):
+    """
+    Validate the user's choice input.
+    """
+    if not choice.isdigit():
+        raise ValueError("Input must be a number.")
+    
+    choice = int(choice)
+    if not 1 <= choice <= max_choice:
+        raise ValueError(f"Input must be a number between 1 and {max_choice}.")
+    
+    return choice
 
 
 def get_user_input():
@@ -174,11 +186,13 @@ def calculate_net_salary(remaining_salary):
     while True:
         try:
             county_choice_input = input("Select your county by entering the corresponding number: ")
-            county_choice = county_choice_input, len(counties_data)
+            county_choice = validate_choice(county_choice_input, len(counties_data))
             break
         except ValueError as e:
                 print(f"Input error: {e}")
-
+    
+    selected_county, selected_tax_rate = counties_data[county_choice - 1]
+    print(f"Selected County: {selected_county}")
         
         
 def print_result():
