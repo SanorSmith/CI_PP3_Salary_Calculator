@@ -114,6 +114,13 @@ def calculate_vat_and_salary(total_salary):
     print("Job List:")
     for index, (job, vat_rate) in enumerate(job_vat_data, start=1):
         print(f"{index}. {job}")
+        
+        
+    # Get user's job choice
+    job_choice = int(input("Select your job by entering the corresponding number: "))
+    selected_job, selected_vat_rate = job_vat_data[job_choice - 1]
+
+
 
 
         
