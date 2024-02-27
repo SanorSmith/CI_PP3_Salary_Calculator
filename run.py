@@ -54,6 +54,9 @@ def validate_job_choice(choice, max_choice):
     
     return choice
 
+
+
+
 def get_user_input():
     """
     Function to get user input for name, number of days, and daily salary.
@@ -150,11 +153,33 @@ def calculate_vat_and_salary(total_salary):
         print(f"VAT Amount: {vat_amount}")
         print(f"Remaining Salary: {remaining_salary}")
         
+        return remaining_salary
+        
     except Exception as e:
         print(f"An error occurred: {e}")
+        
+        
 
+def calculate_net_salary(remaining_salary):
+    """
+    Function to calculate and display net salary after tax deduction based on the user's county selection.
+    """
+    
+       
+    counties_worksheet = SHEET.worksheet('counties_tax_rate')        
+    counties_data = counties_worksheet.get_all_values()        
+    print("Counties List:")
+    for index, (county, _) in enumerate(counties_data, start=1):
+        print(f"{index}. {county}")        
+    while True:
+        try:
+            county_choice_input = input("Select your county by entering the corresponding number: ")
+            county_choice = county_choice_input, len(counties_data)
+            break
+        except ValueError as e:
+                print(f"Input error: {e}")
 
-
+        
         
 def print_result():
     """
@@ -190,7 +215,8 @@ def main():
     print_result()
     total_salary = sum_salary_from_spreadsheet()
     print(f"Total Salary: {total_salary}")
-    calculate_vat_and_salary(total_salary)
+    remaining_salary = calculate_vat_and_salary(total_salary)
+    calculate_net_salary(remaining_salary)
     reset_spreadsheet()
     
 main()
