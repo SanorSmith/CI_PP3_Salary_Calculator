@@ -1,3 +1,4 @@
+import os
 import gspread
 from google.oauth2.service_account import Credentials 
 
@@ -13,6 +14,11 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('salary_calculater')
 
                                                                                                                                                                                  
+def clear_screen():
+    """
+    Clears the terminal screen.
+    """
+    os.system('clear')
 
 #Validate User input data function 
 def validate_name(name):
@@ -202,7 +208,7 @@ def calculate_net_salary(remaining_salary):
         tax_rate = float(selected_tax_rate.replace(',','.'))
         tax_amount = remaining_salary * (tax_rate / 100)
         net_salary = remaining_salary - tax_amount
-
+        clear_screen()
         # Display results
         #print(f"Selected County: {selected_county}")
         #print(f"Tax Rate: {tax_rate}%")
@@ -285,6 +291,7 @@ def main():
     """
     Program main function
     """
+    clear_screen()
     welcome_message()
     processing_data_input_output()    
     reset_spreadsheet()
