@@ -238,19 +238,21 @@ def reset_spreadsheet():
     print("Spreadsheet has been reset.")
     
  
-
-
+def processing_data_input():
+    """
+    Function to process user input and calculate output 
+    """
+    name, salary_data = get_user_input()
+    total_salary = sum(salary_data)
+    push_data_to_spreadsheet(name, salary_data)
+    job_name, vat_rate, vat_amount, remaining_salary = calculate_vat_and_salary(total_salary)
+    county_name, tax_rate, tax_amount, net_salary = calculate_net_salary(remaining_salary)
+    
 def main(): 
     """
     Program main function
     """
-    name, salary_data = get_user_input()
-    push_data_to_spreadsheet(name, salary_data)
-    print_result()
-    total_salary = sum_salary_from_spreadsheet()
-    print(f"Total Salary: {total_salary}")
-    remaining_salary = calculate_vat_and_salary(total_salary)
-    calculate_net_salary(remaining_salary)
+    processing_data_input()
     reset_spreadsheet()
     
 main()
