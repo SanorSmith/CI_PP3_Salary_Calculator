@@ -160,12 +160,12 @@ def calculate_vat_and_salary(total_salary):
         remaining_salary = total_salary - vat_amount
 
         # Display results
-        print(f"Selected Job: {selected_job}")
-        print(f"VAT Rate: {vat_rate}%")
-        print(f"VAT Amount: {vat_amount}")
-        print(f"Remaining Salary: {remaining_salary}")
+        #print(f"Selected Job: {selected_job}")
+        #print(f"VAT Rate: {vat_rate}%")
+        #print(f"VAT Amount: {vat_amount}")
+        #print(f"Remaining Salary: {remaining_salary}")
         
-        return remaining_salary
+        return remaining_salary, selected_job, vat_rate, vat_amount
         
     except Exception as e:
         print(f"An error occurred: {e}")
@@ -204,10 +204,12 @@ def calculate_net_salary(remaining_salary):
         net_salary = remaining_salary - tax_amount
 
         # Display results
-        print(f"Selected County: {selected_county}")
-        print(f"Tax Rate: {tax_rate}%")
-        print(f"Tax Amount: {tax_amount}")
-        print(f"Net Salary: {net_salary}")
+        #print(f"Selected County: {selected_county}")
+        #print(f"Tax Rate: {tax_rate}%")
+        #print(f"Tax Amount: {tax_amount}")
+        #print(f"Net Salary: {net_salary}")
+        
+        return selected_county, tax_rate, tax_amount, net_salary
 
     except Exception as e:
         print(f"An error occurred: {e}")
