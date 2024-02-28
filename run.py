@@ -244,17 +244,7 @@ def reset_spreadsheet():
     print("Spreadsheet has been reset.")
     
 
-def welcome_message():
-    """
-    Function to display a welcome message to the user.
-    """
-    print("Welcome to the Salary Calculator program.")
 
-    print("This application assists individuals in computing their monthly net income by utilizing mathematical formulas and tax data. It simplifies the process of calculating monthly salaries and provides accurate tax amounts based on county tax tables.")
-
-    print ("Let's get started!")
-    print ("/////////////////////////////////////////////////////////////////////////////////////////////////////////////////// \n")
-    
  
 def processing_data_input_output():
     """
@@ -298,6 +288,22 @@ def ask_restart_or_exit():
             return False
         else:
             print("Invalid input. Please type 'restart' or 'exit'.")
+
+
+def welcome_message():
+    """
+    Function to display a welcome message to the user.
+    """
+    message = (
+        "Welcome to the Salary Calculator program.\n\n"
+        "This application assists individuals in computing\n"
+        "their monthly net income by utilizing mathematical\n"
+        "formulas and tax data. It simplifies the process of\n"
+        "calculating monthly salaries and provides accurate\n"
+        "tax amounts based on county tax tables.\n\n"
+        "Let's get started!"
+    )
+    print(message)
     
 def main(): 
     """
