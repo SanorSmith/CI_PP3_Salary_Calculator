@@ -272,10 +272,12 @@ def processing_data_input_output():
         ("Net Salary", net_salary)
     ]
 
-    # Print the final summary
+    # Print the final summary in a table format
     print("\nFinal Summary:")
+    print(f"{'Detail':<30} | {'Value'}")
+    print("-" * 50)
     for detail in output_details:
-        print(f"{detail[0]}: {detail[1]}")    
+        print(f"{detail[0]:<30} | {detail[1]}")   
     
     
 def main(): 
