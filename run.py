@@ -289,6 +289,20 @@ def ask_restart_or_exit():
         else:
             print("Invalid input. Please type 'restart' or 'exit'.")
 
+def print_centered_box(message, width=60):
+    """
+    Function to display a message inside a centered box with a border.
+    :param message: The message to be displayed.
+    :param width: The width of the box.
+    """
+    lines = str(message).split('\n')
+    centered_lines = [line.strip().center(width - 4) for line in lines]
+    separator = '+' + '-' * (width - 2) + '+'
+    print(separator)
+    for line in centered_lines:
+        print('| ' + line + ' |')
+    print(separator)
+    
 
 def welcome_message():
     """
@@ -303,7 +317,7 @@ def welcome_message():
         "tax amounts based on county tax tables.\n\n"
         "Let's get started!"
     )
-    print(message)
+    print_centered_box(message)
     
 def main(): 
     """
