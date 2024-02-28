@@ -259,25 +259,23 @@ def processing_data_input_output():
     push_data_to_spreadsheet(name, salary_data)
     job_name, vat_rate, vat_amount, remaining_salary = calculate_vat_and_salary(total_salary)
     county_name, tax_rate, tax_amount, net_salary = calculate_net_salary(remaining_salary) 
-    result_summary = {
-        "User Name": name,
-        "Entered Salaries": salary_data,
-        "Total Salary": total_salary,
-        "Chosen Job Name": job_name,
-        "VAT Rate (%)": vat_rate,
-        "Salary After VAT Reduction": remaining_salary,
-        "Selected County Name": county_name,
-        "Tax Rate for Selected County (%)": tax_rate,
-        "Tax Amount": tax_amount,
-        "Net Salary": net_salary
-    }
+    output_details = [
+        ("User Name", name),
+        ("Entered Salaries", salary_data),
+        ("Total Salary", total_salary),
+        ("Chosen Job Name", job_name),
+        ("VAT Rate", f"{vat_rate}%"),
+        ("Salary After VAT Reduction", remaining_salary),
+        ("Selected County Name", county_name),
+        ("Tax Rate for Selected County", f"{tax_rate}%"),
+        ("Tax Amount", tax_amount),
+        ("Net Salary", net_salary)
+    ]
 
-    # Printing the final summary
+    # Print the final summary
     print("\nFinal Summary:")
-    for key, value in result_summary.items():
-        print(f"{key}: {value}")
-          
-    
+    for detail in output_details:
+        print(f"{detail[0]}: {detail[1]}")    
     
     
 def main(): 
