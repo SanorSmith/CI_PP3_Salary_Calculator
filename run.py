@@ -273,11 +273,12 @@ def processing_data_input_output():
     ]
 
     # Print the final summary in a table format
-    print("\nFinal Summary:")
-    print(f"{'Detail':<30} | {'Value'}")
-    print("-" * 50)
+    print("\nFinal Summary:\n")
+    print(f"| {'Detail':<50} | {'Value':<50} |")
+    print("|" + "-" * 105 + "|")
     for detail in output_details:
-        print(f"{detail[0]:<30} | {detail[1]}")   
+        print(f"| {detail[0]:<50} | {str(detail[1]):<50} |")
+        print("|" + "-" * 105 + "|")   
     
     
 def main(): 
