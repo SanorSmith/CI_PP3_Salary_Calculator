@@ -286,14 +286,29 @@ def processing_data_input_output():
         print(f"| {detail[0]:<50} | {str(detail[1]):<50} |")
         print("|" + "-" * 105 + "|")   
     
+def ask_restart_or_exit():
+    """
+    Asks the user if they want to restart the application or exit.
+    """
+    while True:
+        choice = input("Do you want to restart the application or exit? (1:restart/2:exit): ").lower().strip()
+        if choice == "1":
+            return True
+        elif choice == "2":
+            return False
+        else:
+            print("Invalid input. Please type 'restart' or 'exit'.")
     
 def main(): 
     """
     Program main function
     """
-    clear_screen()
-    welcome_message()
-    processing_data_input_output()    
-    reset_spreadsheet()
-    
+    while True:
+        clear_screen()
+        welcome_message()
+        processing_data_input_output()    
+        reset_spreadsheet()
+        if not ask_restart_or_exit():
+            break
+    print("Thank you for using the application!")
 main()
