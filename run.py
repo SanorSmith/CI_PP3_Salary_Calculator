@@ -252,6 +252,8 @@ def push_all_u_c_data(output_details):
         worksheet = SHEET.worksheet('all_users_calculated_data')
         headers = [label for label, _ in output_details]
         values = [str(value) for _, value in output_details]
+        if worksheet.row_count == 0 or not worksheet.row_values(1):
+            worksheet.append_row(headers)
         worksheet.append_row(values)
 
     except Exception as e:
