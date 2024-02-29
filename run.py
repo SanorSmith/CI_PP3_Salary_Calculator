@@ -243,7 +243,19 @@ def reset_spreadsheet():
     worksheet.clear()
     print("Spreadsheet has been reset.")
     
+def push_all_u_c_data(output_details):
+    """
+    Pushes data from output_details to the 'all_users_calculated_data' worksheet.
+    :param output_details: Tuple of tuples containing the data to be pushed.
+    """
+    try:
+        worksheet = SHEET.worksheet('all_users_calculated_data')
+        headers = [label for label, _ in output_details]
+        values = [str(value) for _, value in output_details]
+        worksheet.append_row(values)
 
+    except Exception as e:
+        print(f"An error occurred while updating the spreadsheet: {e}")
 
  
 def processing_data_input_output():
@@ -267,7 +279,7 @@ def processing_data_input_output():
         ("Tax Amount", tax_amount),
         ("Net Salary", net_salary)
     ]
-
+    push_all_u_c_data(output_details)
     # Print the final summary in a table format
     print("\nFinal Summary:\n")
     print(f"| {'Detail':<50} | {'Value':<50} |")
