@@ -332,16 +332,36 @@ def welcome_message():
         "Let's get started!"
     )
     print_centered_box(message)
+
+def get_number_of_employers():
+    """
+    Asks the user for the number of people who will be entering their salary details.
+    Returns an integer representing this number.
+    """
+    while True:
+        try:
+            num_people = int(input("Enter the number of people who will be entering their salary details: "))
+            if num_people > 0:
+                return num_people
+            else:
+                print("Please enter a positive number.")
+        except ValueError:
+            print("Invalid input. Please enter a whole number.")
     
 def main(): 
     """
     Program main function
     """
-    while True:
-        clear_screen()
-        welcome_message()
-        processing_data_input_output()    
+    clear_screen()
+    welcome_message()
+    num_people = get_number_of_employers()
+
+    for _ in range(num_people):
+        processing_data_input_output()
         reset_spreadsheet()
+    while True:         
+               
+            
         if not ask_restart_or_exit():
             break
     print("Thank you for using the application!")
