@@ -51,23 +51,18 @@ def validate_input(input_value, validation_type, max_value=None):
         if salary < 0:
             raise ValueError("Salary cannot be negative.")
         return salary
-        
+
+    #Validate the user's job choice input
+    elif validation_type == "choice":
+        if not input_value.isdigit():
+            raise ValueError("Input must be a number.")
+        choice = int(input_value)
+        if not 1 <= choice <= max_value:
+            raise ValueError(f"Input must be a number between 1 and {max_value}.")
+        return choice
+            
     else:
         raise ValueError("Invalid validation type specified.")
-
-def validate_job_choice(choice, max_choice):
-    """
-    Validate the user's job choice input.
-    """
-    if not choice.isdigit():
-        raise ValueError("Input must be a number.")
-    
-    choice = int(choice)
-    if not 1 <= choice <= max_choice:
-        raise ValueError(f"Input must be a number between 1 and {max_choice}.")
-    
-    return choice
-
 
 def validate_choice(choice, max_choice):
     """
@@ -178,7 +173,7 @@ def calculate_vat_and_salary(total_salary):
         while True:
             try:
                 job_choice_input = input("Select your job by entering the corresponding number: ")
-                job_choice = validate_job_choice(job_choice_input, len(job_vat_data))
+                job_choice = validate_input(job_choice_input,"choice", len(job_vat_data))
                 break
             except ValueError as e:
                 print(f"Input error: {e}")
