@@ -74,6 +74,18 @@ def validate_choice(choice, max_choice):
     
     return choice
 
+def get_user_type():
+    """
+    Asks the user if they are a single individual or a company with multiple employees.
+    Returns 'company' if the user is a company, 'individual' otherwise.
+    """
+    while True:
+        user_type_input = input("Are you a single individual or a company with multiple employees? (Enter '1:individual' or '2:company'): ").lower().strip()
+        if user_type_input in ['1', '2']:
+            return user_type_input
+        else:
+            print("Invalid input. Please enter 'individual' or 'company'.")
+            
 
 def get_user_input(emp_num):
     """
@@ -355,13 +367,17 @@ def main():
     while True:
         clear_screen()
         welcome_message()
-        num_employees = get_number_of_employees()
+        user_type = get_user_type()
+        if user_type == '2':
+            num_employees = get_number_of_employees()
 
-        for emp_num in range(num_employees):
-            processing_data_input_output(emp_num)
-            print(f"Employee {emp_num+1} has been inserted")
-            reset_spreadsheet()
-                 
+            for emp_num in range(num_employees):
+                processing_data_input_output(emp_num)
+                print(f"Employee {emp_num+1} has been inserted")
+                reset_spreadsheet()
+        else:
+            processing_data_input_output(1)
+            reset_spreadsheet()         
             
         if not ask_restart_or_exit():
             break
