@@ -44,16 +44,16 @@ def validate_input(input_value, validation_type, max_value=None):
         if not input_value.isdigit() or not 1 <= int(input_value) <= 31:
             raise ValueError("The number of days must be between 1 and 31.")
         return int(input_value)
+    
+    #Validate the salary amount.
+    elif validation_type == "salary":
+        salary = int(input_value)
+        if salary < 0:
+            raise ValueError("Salary cannot be negative.")
+        return salary
+        
     else:
         raise ValueError("Invalid validation type specified.")
-
-def validate_salary(salary):
-    """
-    Validate the salary amount.
-    """
-    if salary < 0:
-        raise ValueError("Salary cannot be negative.")
-    return salary
 
 def validate_job_choice(choice, max_choice):
     """
@@ -122,7 +122,7 @@ def get_user_input(user_type, emp_num=None):
         while True:
             try:
                 
-                salary = validate_salary(int(input(f"Enter salary for day {day}: ")))
+                salary = validate_input(input(f"Enter salary for day {day}: "), "salary")
                 
                 salary_data.append(salary)
                 
