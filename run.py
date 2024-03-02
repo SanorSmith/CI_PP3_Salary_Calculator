@@ -31,23 +31,21 @@ def validate_input(input_value, validation_type, max_value=None):
     :param validation_type: The type of validation ('name', 'days', 'salary', 'choice').
 
     """
+    #Validate the number of name.
     if validation_type == "name":
         if not input_value.strip():
             raise ValueError("The name cannot be empty.")
         if not input_value.replace(' ', '').isalpha():
             raise ValueError("The name must contain only letters.")
         return input_value.strip()
-
+    
+    #Validate the number of days.
+    elif validation_type == "days":
+        if not input_value.isdigit() or not 1 <= int(input_value) <= 31:
+            raise ValueError("The number of days must be between 1 and 31.")
+        return int(input_value)
     else:
         raise ValueError("Invalid validation type specified.")
-
-def validate_days(days):
-    """
-    Validate the number of days.
-    """
-    if not 1 <= days <= 31:
-        raise ValueError("The number of days must be between 1 and 31.")
-    return days
 
 def validate_salary(salary):
     """
@@ -114,7 +112,7 @@ def get_user_input(user_type, emp_num=None):
            
     while True:
         try:
-            days = validate_days(int(input("Enter the number of days (up to 31): ")))
+            days = validate_input(input("Enter the number of days (up to 31): "), "days")
             break
         except ValueError as e:
             print(f"Input error: {e}")
