@@ -52,7 +52,7 @@ def validate_input(input_value, validation_type, max_value=None):
             raise ValueError("Salary cannot be negative.")
         return salary
 
-    #Validate the user's job choice input
+    #Validate the user's job and county choices inputs
     elif validation_type == "choice":
         if not input_value.isdigit():
             raise ValueError("Input must be a number.")
@@ -63,19 +63,6 @@ def validate_input(input_value, validation_type, max_value=None):
             
     else:
         raise ValueError("Invalid validation type specified.")
-
-def validate_choice(choice, max_choice):
-    """
-    Validate the user's choice input.
-    """
-    if not choice.isdigit():
-        raise ValueError("Input must be a number.")
-    
-    choice = int(choice)
-    if not 1 <= choice <= max_choice:
-        raise ValueError(f"Input must be a number between 1 and {max_choice}.")
-    
-    return choice
 
 def get_user_type():
     """
@@ -216,7 +203,7 @@ def calculate_net_salary(remaining_salary):
         while True:
             try:
                 county_choice_input = input("Select your county by entering the corresponding number: ")
-                county_choice = validate_choice(county_choice_input, len(counties_data))
+                county_choice = validate_input(county_choice_input,"choice" ,len(counties_data))
                 break
             except ValueError as e:
                 print(f"Input error: {e}")
