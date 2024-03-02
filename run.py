@@ -21,15 +21,25 @@ def clear_screen():
     os.system('clear')
 
 #Validate User input data function 
-def validate_name(name):
+
+def validate_input(input_value, validation_type, max_value=None):
     """
-    Validate the provided name. The name should be non-empty and contain only letters.
+    General purpose input validation function.
+    Validates the given input based on the specified validation type.
+
+    :param input_value: The value to validate.
+    :param validation_type: The type of validation ('name', 'days', 'salary', 'choice').
+
     """
-    if not name.strip():
-        raise ValueError("The name cannot be empty.")
-    if not name.replace(' ', '').isalpha():  # Allowing spaces in names
-        raise ValueError("The name must contain only letters.")
-    return name.strip()
+    if validation_type == "name":
+        if not input_value.strip():
+            raise ValueError("The name cannot be empty.")
+        if not input_value.replace(' ', '').isalpha():
+            raise ValueError("The name must contain only letters.")
+        return input_value.strip()
+
+    else:
+        raise ValueError("Invalid validation type specified.")
 
 def validate_days(days):
     """
@@ -87,13 +97,17 @@ def get_user_type():
             print("Invalid input. Please enter 'individual' or 'company'.")
             
 
-def get_user_input(emp_num):
+def get_user_input(user_type, emp_num=None):
     """
     Function to get user input for name, number of days, and daily salary.
     """
+    if user_type =='1':
+        name_prompt = "Enter your/employee's name please: "
+    else:
+        name_prompt = f"Enter employee's no.{emp_num+1} name please: "
     while True:
             try:
-                name = validate_name(input(f"Enter employee's no.{emp_num+1} name Please: "))
+                name = validate_input(input(name_prompt), "name")
                 break
             except ValueError as e:
                 print(f"Input error: {e}")
@@ -272,11 +286,11 @@ def push_all_u_c_data(output_details):
         print(f"An error occurred while updating the spreadsheet: {e}")
 
  
-def processing_data_input_output(emp_num):
+def processing_data_input_output(user_type, emp_num=None):
     """
     Function to process user input and calculate output 
     """
-    name, salary_data = get_user_input(emp_num)
+    name, salary_data = get_user_input(user_type, emp_num)
     total_salary = sum(salary_data)
     push_data_to_spreadsheet(name, salary_data)
     job_name, vat_rate, vat_amount, remaining_salary = calculate_vat_and_salary(total_salary)
@@ -372,11 +386,11 @@ def main():
             num_employees = get_number_of_employees()
 
             for emp_num in range(num_employees):
-                processing_data_input_output(emp_num)
+                processing_data_input_output(user_type, emp_num)
                 print(f"Employee {emp_num+1} has been inserted")
                 reset_spreadsheet()
         else:
-            processing_data_input_output(1)
+            processing_data_input_output(user_type)
             reset_spreadsheet()         
             
         if not ask_restart_or_exit():
