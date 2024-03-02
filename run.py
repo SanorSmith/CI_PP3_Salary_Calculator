@@ -75,13 +75,13 @@ def validate_choice(choice, max_choice):
     return choice
 
 
-def get_user_input():
+def get_user_input(emp_num):
     """
     Function to get user input for name, number of days, and daily salary.
     """
     while True:
             try:
-                name = validate_name(input("Enter your name: "))
+                name = validate_name(input(f"Enter employee's no.{emp_num+1} name Please: "))
                 break
             except ValueError as e:
                 print(f"Input error: {e}")
@@ -260,11 +260,11 @@ def push_all_u_c_data(output_details):
         print(f"An error occurred while updating the spreadsheet: {e}")
 
  
-def processing_data_input_output():
+def processing_data_input_output(emp_num):
     """
     Function to process user input and calculate output 
     """
-    name, salary_data = get_user_input()
+    name, salary_data = get_user_input(emp_num)
     total_salary = sum(salary_data)
     push_data_to_spreadsheet(name, salary_data)
     job_name, vat_rate, vat_amount, remaining_salary = calculate_vat_and_salary(total_salary)
@@ -333,16 +333,16 @@ def welcome_message():
     )
     print_centered_box(message)
 
-def get_number_of_employers():
+def get_number_of_employees():
     """
     Asks the user for the number of people who will be entering their salary details.
     Returns an integer representing this number.
     """
     while True:
         try:
-            num_people = int(input("Enter the number of people who will be entering their salary details: "))
-            if num_people > 0:
-                return num_people
+            num_employees = int(input("Enter the number of people who will be entering their salary details: "))
+            if num_employees > 0:
+                return num_employees
             else:
                 print("Please enter a positive number.")
         except ValueError:
@@ -352,15 +352,16 @@ def main():
     """
     Program main function
     """
-    clear_screen()
-    welcome_message()
-    num_people = get_number_of_employers()
+    while True:
+        clear_screen()
+        welcome_message()
+        num_employees = get_number_of_employees()
 
-    for _ in range(num_people):
-        processing_data_input_output()
-        reset_spreadsheet()
-    while True:         
-               
+        for emp_num in range(num_employees):
+            processing_data_input_output(emp_num)
+            print(f"Employee {emp_num+1} has been inserted")
+            reset_spreadsheet()
+                 
             
         if not ask_restart_or_exit():
             break
