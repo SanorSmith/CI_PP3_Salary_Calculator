@@ -176,8 +176,8 @@ def processing_data_input_output(user_type, emp_num=None):
     # Print the final summary in a table format
     print("\nFinal Summary:\n")
     print(f"| {'Detail':<50} | {'Value':<50} |")
-    print("|" + "-" * 105 + "|")
+    print("|" + "-" * 75 + "|")
     for detail in output_details:
         print(f"| {detail[0]:<50} | {str(detail[1]):<50} |")
-        print("|" + "-" * 105 + "|")
+        print("|" + "-" * 75 + "|")
 
