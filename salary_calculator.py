@@ -8,7 +8,7 @@ def get_user_type():
     Returns 'company' if the user is a company, 'individual' otherwise.
     """
     while True:
-        pri("Are you a single individual or a company with multiple employees?\n")
+        print("Are you a single individual or a company with multiple employees?\n")
         user_type_input = input("(Enter '1) individual' or '2)company'): ").lower().strip()
         if user_type_input in ['1', '2']:
             return user_type_input
@@ -74,8 +74,7 @@ def calculate_vat_and_salary(total_salary):
     """
     try:
         vat_job_worksheet = sp_ops.SHEET.worksheet('vat_job_list')        
-        job_vat_data = vat_job_worksheet.get_all_values()
-        print("To ")
+        job_vat_data = vat_job_worksheet.get_all_values()        
         print("Categories of Occupations:")
         for index, (job, vat_rate) in enumerate(job_vat_data, start=1):
             print(f"{index}. {job}")
