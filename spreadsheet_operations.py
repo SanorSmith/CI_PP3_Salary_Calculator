@@ -6,7 +6,7 @@ def push_data_to_spreadsheet(name, salary_data):
     """
     try:
         print ("\nupdating salary worksheet...\n")
-        worksheet = SHEET.worksheet('total_paid_lifts')
+        worksheet = SHEET.worksheet('operation_table')
         salary_data_int = [int(salary) for salary in salary_data]
         new_row = [name] + salary_data_int
         worksheet.append_row(new_row)
@@ -19,7 +19,7 @@ def sum_salary_from_spreadsheet():
     Function to sum up salary data from the spreadsheet.
     """
     
-    worksheet = SHEET.worksheet('total_paid_lifts')
+    worksheet = SHEET.worksheet('operation_table')
     data = worksheet.get_all_values()
 
     total_salary = 0
@@ -49,7 +49,7 @@ def reset_spreadsheet():
     Function to reset the spreadsheet by clearing all its contents.
     """
     
-    worksheet = SHEET.worksheet('total_paid_lifts')        
+    worksheet = SHEET.worksheet('')        
     worksheet.clear()
     print("Spreadsheet has been reset.")
    

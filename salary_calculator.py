@@ -9,7 +9,7 @@ def get_user_type():
     """
     while True:
         print("Are you a single individual or a company with multiple employees?\n")
-        user_type_input = input("(Enter '1) individual' or '2)company'): ").lower().strip()
+        user_type_input = input("(Enter (1) Individual  or  (2) Company): ").lower().strip()
         if user_type_input in ['1', '2']:
             return user_type_input
         else:
@@ -33,7 +33,7 @@ def get_user_input(user_type, emp_num=None):
            
     while True:
         try:
-            days = validate_input(input("Enter the number of days (up to 31 days): "), "days")
+            days = validate_input(input("Enter the number of days to calculate (up to 31 days): "), "days")
             break
         except ValueError as e:
             print(f"Input error: {e}")
