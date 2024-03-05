@@ -13,7 +13,7 @@
         body {
             font-family: Arial;
             display: flex;
-            flex-direction: column-reverse;
+            flex-direction: column;
             align-items: center;
             align-content: center;  
             background-color: lightslategray;          
@@ -84,6 +84,7 @@
             overflow-y: scroll;
             cursor: default;
             position: absolute;
+            margin: 10;
             right: 0;
             left: 0;
             top: 0;
@@ -100,6 +101,7 @@
             position: absolute;
             left: 0;
             top: 0;
+            margin: 5px;
         }
 
         .xterm .xterm-scroll-area {
@@ -170,6 +172,45 @@
             margin: 10px;
             border-radius: 8px;
         }
+
+        /* footer style */
+  #footer-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:auto;                        
+  }
+
+  #creater {
+    display: flex;        
+    align-items: center;        
+  }
+
+  #creater>p{
+    font-size: 10px;
+  }
+  
+  
+  #social-networks{
+    display: flex;
+    flex-direction: row;
+    height: 5rem; 
+    margin-right: 2%;       
+    justify-content: center; 
+    align-items: center;
+    font-size: 1.5rem;
+    color: rgb(26, 21, 21);         
+  }
+  #social-networks li{
+    padding: 5%;
+                   
+  }
+
+  #social-networks i{
+    padding: 1%;
+    color: rgb(0, 0, 0);                      
+  }
+
     </style>
 </head>
 
