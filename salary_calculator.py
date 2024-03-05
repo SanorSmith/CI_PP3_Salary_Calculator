@@ -8,7 +8,8 @@ def get_user_type():
     Returns 'company' if the user is a company, 'individual' otherwise.
     """
     while True:
-        user_type_input = input("Are you a single individual or a company with multiple employees? (Enter '1:individual' or '2:company'): ").lower().strip()
+        pri("Are you a single individual or a company with multiple employees?\n")
+        user_type_input = input("(Enter '1) individual' or '2)company'): ").lower().strip()
         if user_type_input in ['1', '2']:
             return user_type_input
         else:
@@ -32,7 +33,7 @@ def get_user_input(user_type, emp_num=None):
            
     while True:
         try:
-            days = validate_input(input("Enter the number of days (up to 31): "), "days")
+            days = validate_input(input("Enter the number of days (up to 31 days): "), "days")
             break
         except ValueError as e:
             print(f"Input error: {e}")
@@ -59,7 +60,7 @@ def get_number_of_employees():
     """
     while True:
         try:
-            num_employees = int(input("Enter the number of people who will be entering their salary details: "))
+            num_employees = int(input("\nEnter the number of people who will be entering their salary details: "))
             if num_employees > 0:
                 return num_employees
             else:
@@ -74,8 +75,8 @@ def calculate_vat_and_salary(total_salary):
     try:
         vat_job_worksheet = sp_ops.SHEET.worksheet('vat_job_list')        
         job_vat_data = vat_job_worksheet.get_all_values()
-
-        print("Job List:")
+        print("To ")
+        print("Categories of Occupations:")
         for index, (job, vat_rate) in enumerate(job_vat_data, start=1):
             print(f"{index}. {job}")
             
@@ -83,7 +84,8 @@ def calculate_vat_and_salary(total_salary):
         # Get user's job choice
         while True:
             try:
-                job_choice_input = input("Select your job by entering the corresponding number: ")
+                print("")
+                job_choice_input = input("Choose your category's occupations by entering the corresponding number: ")
                 job_choice = validate_input(job_choice_input,"choice", len(job_vat_data))
                 break
             except ValueError as e:

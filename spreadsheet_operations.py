@@ -5,7 +5,7 @@ def push_data_to_spreadsheet(name, salary_data):
     Function to push data to the spreadsheet using append_row.
     """
     try:
-        print ("updating salary worksheet...\n")
+        print ("\nupdating salary worksheet...\n")
         worksheet = SHEET.worksheet('total_paid_lifts')
         salary_data_int = [int(salary) for salary in salary_data]
         new_row = [name] + salary_data_int
