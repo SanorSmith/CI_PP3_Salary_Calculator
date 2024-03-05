@@ -49,7 +49,7 @@ def reset_spreadsheet():
     Function to reset the spreadsheet by clearing all its contents.
     """
     
-    worksheet = SHEET.worksheet('')        
+    worksheet = SHEET.worksheet('operation_table')        
     worksheet.clear()
     print("Spreadsheet has been reset.")
    
