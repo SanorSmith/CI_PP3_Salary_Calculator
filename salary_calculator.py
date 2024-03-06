@@ -158,8 +158,8 @@ def processing_data_input_output(user_type, emp_num=None):
     name, salary_data = get_user_input(user_type, emp_num)
     total_salary = sum(salary_data)
     sp_ops.push_data_to_spreadsheet(name, salary_data)
-    job_name, vat_rate, vat_amount, remaining_salary = calculate_vat_and_salary(total_salary)
-    county_name, tax_rate, tax_amount, net_salary = calculate_net_salary(remaining_salary) 
+    remaining_salary, job_name, vat_amount, vat_rate = calculate_vat_and_salary(total_salary)
+    county_name, tax_rate, tax_amount, net_salary = calculate_net_salary(remaining_salary)  
     output_details = [
         ("User Name", name),
         ("Entered Salaries", salary_data),
@@ -175,9 +175,10 @@ def processing_data_input_output(user_type, emp_num=None):
     sp_ops.push_all_u_c_data(output_details)
     # Print the final summary in a table format
     print("\nFinal Summary:\n")
-    print(f"| {'Detail':<50} | {'Value':<50} |")
+    print(f" {'Detail':<40}  {'Value':<50}")
     print("|" + "-" * 75 + "|")
     for detail in output_details:
-        print(f"| {detail[0]:<50} | {str(detail[1]):<50} |")
+        print(f" {detail[0]:<40} | {str(detail[1]):<40}")
         print("|" + "-" * 75 + "|")
+        
 
