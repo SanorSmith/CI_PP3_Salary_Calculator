@@ -172,7 +172,9 @@ def processing_data_input_output(user_type, emp_num=None):
         ("Tax Amount", tax_amount),
         ("Net Salary", net_salary)
     ]
-    sp_ops.push_all_u_c_data(output_details)
+    return name
+
+    sp_ops.pull_all_u_c_data(output_details)
     # Print the final summary in a table format
     print("\nFinal Summary:\n")
     print(f" {'Detail':<40}  {'Value':<50}")

@@ -28,7 +28,7 @@ def sum_salary_from_spreadsheet():
 
     return total_salary
 
-def push_all_u_c_data(output_details):
+def pull_all_u_c_data(output_details):
     """
     Pushes data from output_details to the 'all_users_calculated_data' worksheet.
     :param output_details: Tuple of tuples containing the data to be pushed.

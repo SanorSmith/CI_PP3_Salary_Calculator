@@ -21,10 +21,10 @@ def main():
         sc.welcome_message()
         user_type = sc.get_user_type()
         if user_type == '2':
-            num_employees = sc.get_number_of_employees()
+            num_employees = sc.get_number_of_employees()            
             for emp_num in range(num_employees):
-                sc.processing_data_input_output(user_type, emp_num)
-                print(f"Employee {emp_num+1} has been inserted")
+                emp_name = sc.processing_data_input_output(user_type, emp_num)
+                print(f"Employee '{emp_name}' has been inserted")
                 sp_ops.reset_spreadsheet()
         else:
             sc.processing_data_input_output(user_type)
