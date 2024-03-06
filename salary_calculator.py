@@ -1,6 +1,6 @@
 from validation import validate_input
 import spreadsheet_operations as sp_ops
-from ui_helpers import clear_screen, print_centered_box, welcome_message
+from ui_helpers import clear_screen, print_centered_box, welcome_message, print_user_data_table
 
 def get_user_type():
     """
@@ -172,15 +172,10 @@ def processing_data_input_output(user_type, emp_num=None):
         ("Tax Amount", tax_amount),
         ("Net Salary", net_salary)
     ]
+    sp_ops.pull_all_u_c_data(output_details)
+    print_user_data_table(output_details)
     return name
 
-    sp_ops.pull_all_u_c_data(output_details)
-    # Print the final summary in a table format
-    print("\nFinal Summary:\n")
-    print(f" {'Detail':<40}  {'Value':<50}")
-    print("|" + "-" * 75 + "|")
-    for detail in output_details:
-        print(f" {detail[0]:<40} | {str(detail[1]):<40}")
-        print("|" + "-" * 75 + "|")
-        
+
+
 

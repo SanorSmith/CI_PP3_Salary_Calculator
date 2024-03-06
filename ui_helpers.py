@@ -34,3 +34,18 @@ def welcome_message():
         "Let's get started!"
     )
     print_centered_box(message)    
+    
+def print_user_data_table(output_details):
+    """
+    Prints user data in a formatted table.
+
+    :param output_details: A list of tuples containing the details to be printed.
+    """
+    # Print the final summary in a table format
+    print("\nFinal Summary:\n")
+    print(f" {'Detail':<40}  {'Value':<50}")
+    print("|" + "-" * 75 + "|")
+    for detail in output_details:
+        print(f" {detail[0]:<40} | {str(detail[1]):<40}")
+        print("|" + "-" * 75 + "|")
+        
