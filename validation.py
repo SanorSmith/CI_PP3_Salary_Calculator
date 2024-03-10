@@ -38,6 +38,12 @@ def validate_input(input_value, validation_type, max_value=None):
         if not 1 <= choice <= max_value:
             raise ValueError(f"Input must be a number between 1 and {max_value}.")
         return choice
-            
+    
+    # Validate the choice to print out calculation results.
+    elif validation_type == "choice_c_r":
+        input_value = input_value.lower().strip()
+        if input_value not in ['yes', 'no', 'y', 'n']:
+            raise ValueError("Invalid input. Please enter 'yes' or 'no'.")
+        return input_value
     else:
         raise ValueError("Invalid validation type specified.")

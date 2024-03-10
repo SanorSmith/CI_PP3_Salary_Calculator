@@ -173,9 +173,24 @@ def processing_data_input_output(user_type, emp_num=None):
         ("Net Salary", net_salary)
     ]
     sp_ops.pull_all_u_c_data(output_details)
-    print_user_data_table(output_details)
+    if ask_print_results():
+        print_user_data_table(output_details)
+
     return name
 
-
-
+def ask_print_results():
+    """
+    Asks the user if they want to print the calculation results.
+    Returns True if the user wants to print, False otherwise.
+    """
+    while True:
+        try:
+            choice = input("Do you want to print the calculation results? (yes/no): ")
+            validated_choice = validate_input(choice, "choice_c_r")
+            if validated_choice in ['yes', 'y']:
+                return True
+            elif validated_choice in ['no', 'n']:
+                return False
+        except ValueError as e:
+            print(f"Input error: {e}")
 
