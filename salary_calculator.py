@@ -173,9 +173,11 @@ def processing_data_input_output(user_type, emp_num=None):
         ("Net Salary", net_salary)
     ]
     sp_ops.push_all_u_c_data(output_details)
-    if ask_print_results():
+    if user_type =='2' :
+        if ask_print_results():
+            print_user_data_table(output_details)
+    else:
         print_user_data_table(output_details)
-
     return name
 
 def ask_print_results():
