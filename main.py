@@ -25,11 +25,12 @@ def main():
             for emp_num in range(num_employees):
                 emp_name = sc.processing_data_input_output(user_type, emp_num)
                 print(f"Employee '{emp_name}' has been inserted")                
-                sp_ops.reset_spreadsheet()
+                sp_ops.reset_spreadsheet('operation_table')
             sp_ops.print_all_user_calculated_data()
+            sp_ops.reset_spreadsheet('all_users_calculated_data')
         else:
             sc.processing_data_input_output(user_type)
-            sp_ops.reset_spreadsheet()         
+            sp_ops.reset_spreadsheet('all_users_calculated_data')         
             
         if not ask_restart_or_exit():
             break

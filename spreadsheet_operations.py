@@ -44,12 +44,12 @@ def push_all_u_c_data(output_details):
     except Exception as e:
         print(f"An error occurred while updating the spreadsheet: {e}")
 
-def reset_spreadsheet():
+def reset_spreadsheet(worksheet_name):
     """
     Function to reset the spreadsheet by clearing all its contents.
     """
     
-    worksheet = SHEET.worksheet('operation_table')        
+    worksheet = SHEET.worksheet(worksheet_name)        
     worksheet.clear()
     print("Spreadsheet has been reset.")
     
