@@ -172,7 +172,7 @@ def processing_data_input_output(user_type, emp_num=None):
         ("Tax Amount", tax_amount),
         ("Net Salary", net_salary)
     ]
-    sp_ops.pull_all_u_c_data(output_details)
+    sp_ops.push_all_u_c_data(output_details)
     if ask_print_results():
         print_user_data_table(output_details)
 

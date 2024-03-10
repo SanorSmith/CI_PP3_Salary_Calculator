@@ -24,8 +24,9 @@ def main():
             num_employees = sc.get_number_of_employees()            
             for emp_num in range(num_employees):
                 emp_name = sc.processing_data_input_output(user_type, emp_num)
-                print(f"Employee '{emp_name}' has been inserted")
+                print(f"Employee '{emp_name}' has been inserted")                
                 sp_ops.reset_spreadsheet()
+            sp_ops.print_all_user_calculated_data()
         else:
             sc.processing_data_input_output(user_type)
             sp_ops.reset_spreadsheet()         

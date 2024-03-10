@@ -1,5 +1,5 @@
 from config import SHEET
-
+from ui_helpers import print_user_data_table, print_with_delay
 def push_data_to_spreadsheet(name, salary_data):
     """
     Function to push data to the spreadsheet using append_row.
@@ -28,7 +28,7 @@ def sum_salary_from_spreadsheet():
 
     return total_salary
 
-def pull_all_u_c_data(output_details):
+def push_all_u_c_data(output_details):
     """
     Pushes data from output_details to the 'all_users_calculated_data' worksheet.
     :param output_details: Tuple of tuples containing the data to be pushed.
@@ -52,4 +52,23 @@ def reset_spreadsheet():
     worksheet = SHEET.worksheet('operation_table')        
     worksheet.clear()
     print("Spreadsheet has been reset.")
-   
+    
+def print_all_user_calculated_data():
+    """
+    Reads and prints all data from the 'all_users_calculated_data' worksheet in a formatted table.
+    """
+    try:
+        worksheet = SHEET.worksheet('all_users_calculated_data')
+        data = worksheet.get_all_values()
+
+        if not data:
+            print_with_delay("No data found in the worksheet.")
+            return
+
+        # Convert each row to a list of tuples
+        for row in data[1:]:  # Skipping header row
+            output_details = list(zip(data[0], row))  # Zipping headers with row values
+            print_user_data_table(output_details)
+
+    except Exception as e:
+        print_with_delay(f"An error occurred while retrieving data from the spreadsheet: {e}")
