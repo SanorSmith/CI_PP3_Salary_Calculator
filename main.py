@@ -23,6 +23,12 @@ def main():
         is_new_user = user_register.ask_if_new_user()
         if is_new_user:
             user_register.register_user()
+        else:
+            response = user_register.check_returning_user()
+            if not response : 
+                sc.clear_screen()
+                if not ask_restart_or_exit():
+                    break
             
         user_type = sc.get_user_type()
         if user_type == '2':

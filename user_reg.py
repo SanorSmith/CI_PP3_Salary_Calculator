@@ -21,11 +21,52 @@ def register_user():
     Registers a new user by asking for their name and email, then pushes the data to the 'reg_user_list' worksheet.
     """
     name = input("Enter your name: ")
-    email = input("Enter your email address: ")
-    
+    email = input("Enter your email address for registration: ")
+    if is_email_registered(email):
+        print(f"\nEmail {email} is already registered.\n")
+        print(f"\nWellcome back {name}. \n")
+        return
     try:
         worksheet = SHEET.worksheet('reg_user_list')
         worksheet.append_row([name, email])
         print("Registration successful.")
     except Exception as e:
         print(f"An error occurred while registering: {e}")
+        
+def check_returning_user():
+    """
+    Checks if a returning user's email is in the worksheet and displays a welcome message.
+    """
+    email = input("Enter your email address to continue: ")
+    
+    try:
+        worksheet = SHEET.worksheet('reg_user_list')
+        emails = worksheet.col_values(2)
+        name = worksheet.col_values(1)
+        if email in emails:
+            print(f"Welcome back, {name}!")
+        else:
+            print("Email not found.")
+            response = input("Would you like to register? (yes/no): ").lower().strip()
+            if response in ['yes', 'y']:
+                return True
+            else:
+                print("Registration skipped.")
+                return False
+    except Exception as e:
+        print(f"An error occurred while checking user: {e}")
+
+def is_email_registered(email):
+    """
+    Checks if an email is already registered.
+
+    :param email: Email to check
+    :return: True if registered, False otherwise
+    """
+    try:
+        worksheet = SHEET.worksheet('reg_user_list')
+        emails = worksheet.col_values(2)
+        return email in emails
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False        
