@@ -21,7 +21,7 @@ def register_user():
     Registers a new user by asking for their name and email, then pushes the data to the 'reg_user_list' worksheet.
     """
     name = input("Enter your name: ")
-    email = input("Enter your email address: ")
+    email = input("Enter your email address for registration: ")
     
     try:
         worksheet = SHEET.worksheet('reg_user_list')
@@ -29,3 +29,27 @@ def register_user():
         print("Registration successful.")
     except Exception as e:
         print(f"An error occurred while registering: {e}")
+
+def check_returning_user():
+    """
+    Checks if a returning user's email is in the worksheet and displays a welcome message.
+    """
+    email = input("Enter your email address to continue: ")
+    
+    try:
+        worksheet = SHEET.worksheet('reg_user_list')
+        emails = worksheet.col_values(2)
+        name = worksheet.col_values(1)
+        if email in emails:
+            print(f"Welcome back, {name}!")
+            return email
+        else:
+            print("Email not found.")
+            response = input("Would you like to register? (yes/no): ").lower().strip()
+            if response in ['yes', 'y']:
+                return True
+            else:
+                print("Registration skipped.")
+                return False
+    except Exception as e:
+        print(f"An error occurred while checking user: {e}")
