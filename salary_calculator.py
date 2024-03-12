@@ -120,7 +120,8 @@ def calculate_net_salary(remaining_salary):
         counties_data = counties_worksheet.get_all_values()
 
         # Display counties to the user
-        print("Counties List:")
+        clear_screen()
+        print("\nEach county features a distinct tax rate. Please select your county from the following list:")
         for index, (county, _) in enumerate(counties_data, start=1):
             print(f"{index}. {county}")
 
