@@ -1,5 +1,5 @@
 from config import SHEET
-
+from main import ask_restart_or_exit, main
 def ask_the_user(prompt):
     """
     Asks the user a yes/no question based on the provided prompt.
@@ -28,8 +28,14 @@ def register_user():
     email = input("Enter your email address for registration: ")
     if is_email_registered(email):
         print("You are already registered.")
-        
-        return
+        response = ask_the_user("Would you like to proceed using the registered email? Please respond with 'yes' or 'no'.")
+        if response : return
+        else : 
+            if not ask_restart_or_exit():
+                exit()
+                print("Thank you for using the application!")
+            else:
+                main() 
     try:
         worksheet = SHEET.worksheet('reg_user_list')
         worksheet.append_row([name, email])
@@ -52,8 +58,8 @@ def check_returning_user():
             return email
         else:
             print("Email not found.")
-            response = input("Would you like to register? (yes/no): ").lower().strip()
-            if response in ['yes', 'y']:
+            response = ask_the_user("Would you like to register? (yes/no): ")
+            if response :
                 return True
             else:
                 print("Registration skipped.")
