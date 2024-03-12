@@ -21,7 +21,6 @@ def main():
         sc.welcome_message()
         
         is_new_user = user_register.ask_the_user("Have you used Salary Calculator before? (yes/no):")
-        print(is_new_user)
         if not is_new_user:
             user_register.register_user()
         else:

@@ -40,6 +40,14 @@ def register_user():
         worksheet = SHEET.worksheet('reg_user_list')
         worksheet.append_row([name, email])
         print("Registration successful.")
+        response = ask_the_user("Do you want to preceed to Salary Calculator? 'yes' or 'no': ")
+        if response : return
+        else : 
+            if not ask_restart_or_exit():
+                exit()
+                print("Thank you for using the application!")
+            else:
+                main()
     except Exception as e:
         print(f"An error occurred while registering: {e}")
 
