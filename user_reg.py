@@ -1,20 +1,24 @@
 from config import SHEET
 
-def ask_if_new_user():
+def ask_the_user(prompt):
     """
-    Asks the user if they have used the app before.
+    Asks the user a yes/no question based on the provided prompt.
+
+    Args:
+        prompt (str): The message to display to the user.
 
     Returns:
-        bool: True if the user is new, False otherwise.
+        bool: True if the user answers 'yes', False if 'no'.
     """
+    response_map = {'yes': True, 'y': True, 'no': False, 'n': False}
+    
     while True:
-        response = input("Have you used Salary Calculator before? (yes/no): ").lower().strip()
-        if response in ['yes', 'y']:
-            return False
-        elif response in ['no', 'n']:
-            return True
+        response = input(prompt).lower().strip()
+        if response in response_map:
+            return response_map[response]
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
+
             
 def register_user():
     """
@@ -22,7 +26,10 @@ def register_user():
     """
     name = input("Enter your name: ")
     email = input("Enter your email address for registration: ")
-    
+    if is_email_registered(email):
+        print("You are already registered.")
+        
+        return
     try:
         worksheet = SHEET.worksheet('reg_user_list')
         worksheet.append_row([name, email])
@@ -53,3 +60,18 @@ def check_returning_user():
                 return False
     except Exception as e:
         print(f"An error occurred while checking user: {e}")
+
+def is_email_registered(email):
+    """
+    Checks if the given email is already registered.
+
+    :param email: The email address to check.
+    :return: True if the email is registered, False otherwise.
+    """
+    try:
+        worksheet = SHEET.worksheet('reg_user_list')
+        emails = worksheet.col_values(2)  # Assuming email is in the second column
+        return email in emails
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return False

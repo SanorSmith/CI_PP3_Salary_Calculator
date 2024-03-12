@@ -20,7 +20,7 @@ def main():
         sc.clear_screen()
         sc.welcome_message()
         
-        is_new_user = user_register.ask_if_new_user()
+        is_new_user = user_register.ask_the_user("Have you used Salary Calculator before? (yes/no):")
         if is_new_user:
             user_register.register_user()
         else:
@@ -31,6 +31,8 @@ def main():
                     break
                 else:
                     main()
+        
+        
             
         user_type = sc.get_user_type()
         if user_type == '2':
