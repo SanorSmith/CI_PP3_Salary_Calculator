@@ -1,3 +1,5 @@
+from config import SHEET
+
 def ask_if_new_user():
     """
     Asks the user if they have used the app before.
@@ -13,3 +15,17 @@ def ask_if_new_user():
             return True
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
+            
+def register_user():
+    """
+    Registers a new user by asking for their name and email, then pushes the data to the 'reg_user_list' worksheet.
+    """
+    name = input("Enter your name: ")
+    email = input("Enter your email address: ")
+    
+    try:
+        worksheet = SHEET.worksheet('reg_user_list')
+        worksheet.append_row([name, email])
+        print("Registration successful.")
+    except Exception as e:
+        print(f"An error occurred while registering: {e}")

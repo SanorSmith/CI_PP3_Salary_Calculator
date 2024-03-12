@@ -19,7 +19,11 @@ def main():
     while True:
         sc.clear_screen()
         sc.welcome_message()
-        user_register.ask_if_new_user()
+        
+        is_new_user = user_register.ask_if_new_user()
+        if is_new_user:
+            user_register.register_user()
+            
         user_type = sc.get_user_type()
         if user_type == '2':
             num_employees = sc.get_number_of_employees()            
