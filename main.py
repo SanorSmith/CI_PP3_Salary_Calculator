@@ -1,6 +1,6 @@
 import salary_calculator as sc
 import spreadsheet_operations as sp_ops
-
+import user_reg as user_register
 def ask_restart_or_exit():
     """
     Asks the user if they want to restart the application or exit.
@@ -19,6 +19,7 @@ def main():
     while True:
         sc.clear_screen()
         sc.welcome_message()
+        user_register.ask_if_new_user()
         user_type = sc.get_user_type()
         if user_type == '2':
             num_employees = sc.get_number_of_employees()            
