@@ -23,8 +23,10 @@ def main():
         is_new_user = user_register.ask_the_user("Have you used Salary Calculator before? (yes/no): ")
         sc.clear_screen()
         sc.welcome_message()
-        if not is_new_user:
-            user_register.register_user()
+        if not is_new_user or not user_register.check_returning_user():
+            response = user_register.ask_the_user("Would you like to register? (yes/no): ")
+            if response:
+                user_register.register_user()
         else:
             response = user_register.check_returning_user()
             if not response : 

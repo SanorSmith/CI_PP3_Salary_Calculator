@@ -85,19 +85,15 @@ def check_returning_user():
     
     try:
         worksheet = SHEET.worksheet('reg_user_list')
-        emails = worksheet.col_values(2)
-        name = worksheet.col_values(1)
-        if email in emails:
-            print(f"Welcome back, {name}!")
-            return email
-        else:
-            print("\033[33m" + "Email not found."+ "\033[0m")
-            response = ask_the_user("Would you like to register? (yes/no): ")
-            if response :
-                return True
-            else:
-                print("Registration skipped.")
-                return False
+        user_data = worksheet.get_all_values()
+        
+        for row in user_data:
+            if email == row[1]:  # row[1] is the email column
+                print(f"Welcome back, {row[0]}!")  # row[0] is the name column
+                return True  # Email found, user is registered
+
+        print("\033[33m" + "Email not found." + "\033[0m")
+        return False  # Email not found, user is not registered
     except Exception as e:
         print(f"An error occurred while checking user: {e}")
 
