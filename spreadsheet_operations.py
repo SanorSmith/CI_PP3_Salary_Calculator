@@ -5,12 +5,13 @@ def push_data_to_spreadsheet(name, salary_data):
     Function to push data to the spreadsheet using append_row.
     """
     try:
-        print ("\nupdating salary worksheet...\n")
+        print ("\033[32m" + "\nupdating salary worksheet")
+        print_with_delay("....." + "\033[0m"+"\n")
         worksheet = SHEET.worksheet('operation_table')
         salary_data_int = [int(salary) for salary in salary_data]
         new_row = [name] + salary_data_int
         worksheet.append_row(new_row)
-        print("Salary worksheet updated successfully. \n")
+        print("\033[32m" + "Salary worksheet updated successfully. \n" + "\033[0m")
     except Exception as e:
         print(f"An error occurred: {e}")
         
@@ -51,7 +52,7 @@ def reset_spreadsheet(worksheet_name):
     
     worksheet = SHEET.worksheet(worksheet_name)        
     worksheet.clear()
-    print("Spreadsheet has been reset.")
+    print("\033[32m" + "Spreadsheet has been reset." + "\033[0m")
     
 def print_all_user_calculated_data():
     """
@@ -62,7 +63,7 @@ def print_all_user_calculated_data():
         data = worksheet.get_all_values()
 
         if not data:
-            print_with_delay("No data found in the worksheet.")
+            print_with_delay("\033[33m" + "No data found in the worksheet." + "\033[0m")
             return
 
         # Convert each row to a list of tuples

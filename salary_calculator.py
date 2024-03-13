@@ -9,21 +9,21 @@ def get_user_type():
     """
     while True:
         print("Are you a single individual or a company with multiple employees?\n")
-        user_type_input = input("(Enter (1) Individual  or  (2) Company): ").lower().strip()
+        user_type_input = input("Please! Enter " + "\033[34m" + "(1) for Individual " + "\033[0m" + " or " + "\033[34m" + " (2) for Company): " + "\033[0m").lower().strip()
         if user_type_input in ['1', '2']:
             return user_type_input
         else:
-            print("Invalid input. Please enter 'individual' or 'company'.")
+            print("\033[31m" + "Invalid input. Please enter '(1) individual' or '(2) company'." + "\033[0m")
             
 
 def get_user_input(user_type, emp_num=None):
     """
     Function to get user input for name, number of days, and daily salary.
-    """
+    """    
     if user_type =='1':
         name_prompt = "Enter your/employee's name please: "
     else:
-        name_prompt = f"Enter employee's no.{emp_num+1} name please: "
+        name_prompt = f"Please enter the name of employee number {emp_num+1} : "
     while True:
             try:
                 name = validate_input(input(name_prompt), "name")
@@ -60,13 +60,13 @@ def get_number_of_employees():
     """
     while True:
         try:
-            num_employees = int(input("\nEnter the number of people who will be entering their salary details: "))
+            num_employees = int(input("\nEnter the number of employees who will be entering their salary details: "))
             if num_employees > 0:
                 return num_employees
             else:
-                print("Please enter a positive number.")
+                print("\033[31m" + "Please enter a positive number." + "\033[0m")
         except ValueError:
-            print("Invalid input. Please enter a whole number.")
+            print("\033[31m" + "Invalid input. Please enter a whole number." + "\033[0m")
 
 def calculate_vat_and_salary(total_salary):
     """
@@ -94,14 +94,7 @@ def calculate_vat_and_salary(total_salary):
         # Calculate VAT and remaining salary
         vat_rate = float(selected_vat_rate)
         vat_amount = total_salary * (vat_rate)
-        remaining_salary = total_salary - vat_amount
-
-        # Display results
-        #print(f"Selected Job: {selected_job}")
-        #print(f"VAT Rate: {vat_rate}%")
-        #print(f"VAT Amount: {vat_amount}")
-        #print(f"Remaining Salary: {remaining_salary}")
-        
+        remaining_salary = total_salary - vat_amount       
         return remaining_salary, selected_job, vat_rate, vat_amount
         
     except Exception as e:
@@ -140,13 +133,7 @@ def calculate_net_salary(remaining_salary):
         tax_rate = float(selected_tax_rate.replace(',','.'))
         tax_amount = remaining_salary * (tax_rate / 100)
         net_salary = remaining_salary - tax_amount
-        clear_screen()
-        # Display results
-        #print(f"Selected County: {selected_county}")
-        #print(f"Tax Rate: {tax_rate}%")
-        #print(f"Tax Amount: {tax_amount}")
-        #print(f"Net Salary: {net_salary}")
-        
+        clear_screen()      
         return selected_county, tax_rate, tax_amount, net_salary
 
     except Exception as e:
@@ -162,7 +149,7 @@ def processing_data_input_output(user_type, emp_num=None):
     remaining_salary, job_name, vat_amount, vat_rate = calculate_vat_and_salary(total_salary)
     county_name, tax_rate, tax_amount, net_salary = calculate_net_salary(remaining_salary)  
     output_details = [
-        ("User Name", name),
+        ("Employee's name", name),
         ("Entered Salaries", salary_data),
         ("Total Salary", total_salary),
         ("Chosen Job Name", job_name),

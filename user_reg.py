@@ -1,5 +1,6 @@
 from config import SHEET
 from main import ask_restart_or_exit, main
+import ui_helpers as ui_h
 import re
 
 def validate_email(email):
@@ -32,7 +33,7 @@ def ask_the_user(prompt):
         if response in response_map:
             return response_map[response]
         else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
+            print("Invalid input. Please enter (yes/no): ")
 
             
 def register_user():
@@ -45,27 +46,27 @@ def register_user():
         if validate_email(email):
             break
         else:
-            print("Invalid email format. Please try again.")  
+            print("\033[31m" + "Invalid email format. Please try again." + "\033[0m")  
     if is_email_registered(email):
-        print("You are already registered.")
-        response = ask_the_user("Would you like to proceed using the registered email? 'yes' or 'no': ")
+        print("\033[33m" + "You are already registered." + "\033[0m")
+        response = ask_the_user("Would you like to proceed using the registered email? (yes/no): ")
         if response : return
         else : 
             if not ask_restart_or_exit():
                 exit()
-                print("Thank you for using the application!")
+                ui_h.print_with_delay("Thank you for using the application!")
             else:
                 main() 
     try:
         worksheet = SHEET.worksheet('reg_user_list')
         worksheet.append_row([name, email])
-        print("Registration successful.")
-        response = ask_the_user("Do you want to preceed to Salary Calculator? 'yes' or 'no': ")
+        print("\033[32m" + "Registration successful." + "\033[0m")
+        response = ask_the_user("Do you want to preceed to Salary Calculator? (yes/no): ")
         if response : return
         else : 
             if not ask_restart_or_exit():
                 exit()
-                print("Thank you for using the application!")
+                ui_h.print_with_delay("Thank you for using the application!")
             else:
                 main()
     except Exception as e:
@@ -80,7 +81,7 @@ def check_returning_user():
         if validate_email(email):
             break
         else:
-            print("Invalid email format. Please try again.")
+            print("\033[31m" +"Invalid email format. Please try again." + "\033[0m")
     
     try:
         worksheet = SHEET.worksheet('reg_user_list')
@@ -90,7 +91,7 @@ def check_returning_user():
             print(f"Welcome back, {name}!")
             return email
         else:
-            print("Email not found.")
+            print("\033[33m" + "Email not found."+ "\033[0m")
             response = ask_the_user("Would you like to register? (yes/no): ")
             if response :
                 return True
