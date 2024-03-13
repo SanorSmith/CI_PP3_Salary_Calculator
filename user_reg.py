@@ -17,7 +17,7 @@ def ask_the_user(prompt):
         if response in response_map:
             return response_map[response]
         else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
+            print("Invalid input. Please enter 'yes' or 'no': ")
 
             
 def register_user():
@@ -28,7 +28,7 @@ def register_user():
     email = input("Enter your email address for registration: ")
     if is_email_registered(email):
         print("You are already registered.")
-        response = ask_the_user("Would you like to proceed using the registered email? Please respond with 'yes' or 'no'.")
+        response = ask_the_user("Would you like to proceed using the registered email? 'yes' or 'no':")
         if response : return
         else : 
             if not ask_restart_or_exit():
