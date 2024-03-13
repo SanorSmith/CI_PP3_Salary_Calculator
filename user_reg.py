@@ -1,5 +1,20 @@
 from config import SHEET
 from main import ask_restart_or_exit, main
+import re
+
+def validate_email(email):
+    """
+    Validates an email address to ensure it follows the user_email@domain.com format.
+
+    Args:
+        email (str): The email address to validate.
+
+    Returns:
+        bool: True if the email is valid, False otherwise.
+    """
+    email_regex = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+    return re.match(email_regex, email) is not None
+
 def ask_the_user(prompt):
     """
     Asks the user a yes/no question based on the provided prompt.
@@ -17,7 +32,7 @@ def ask_the_user(prompt):
         if response in response_map:
             return response_map[response]
         else:
-            print("Invalid input. Please enter 'yes' or 'no': ")
+            print("Invalid input. Please enter 'yes' or 'no'.")
 
             
 def register_user():
@@ -25,10 +40,15 @@ def register_user():
     Registers a new user by asking for their name and email, then pushes the data to the 'reg_user_list' worksheet.
     """
     name = input("Enter your name: ")
-    email = input("Enter your email address for registration: ")
+    while True:
+        email = input("Enter your email address for registration: ")
+        if validate_email(email):
+            break
+        else:
+            print("Invalid email format. Please try again.")  
     if is_email_registered(email):
         print("You are already registered.")
-        response = ask_the_user("Would you like to proceed using the registered email? 'yes' or 'no':")
+        response = ask_the_user("Would you like to proceed using the registered email? 'yes' or 'no': ")
         if response : return
         else : 
             if not ask_restart_or_exit():
@@ -55,7 +75,12 @@ def check_returning_user():
     """
     Checks if a returning user's email is in the worksheet and displays a welcome message.
     """
-    email = input("Enter your email address to continue: ")
+    while True:
+        email = input("Enter your email address to continue: ")
+        if validate_email(email):
+            break
+        else:
+            print("Invalid email format. Please try again.")
     
     try:
         worksheet = SHEET.worksheet('reg_user_list')
@@ -84,7 +109,7 @@ def is_email_registered(email):
     """
     try:
         worksheet = SHEET.worksheet('reg_user_list')
-        emails = worksheet.col_values(2)  # Assuming email is in the second column
+        emails = worksheet.col_values(2)
         return email in emails
     except Exception as e:
         print(f"An error occurred: {e}")
