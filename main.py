@@ -7,7 +7,7 @@ def ask_restart_or_exit():
     Asks the user if they want to restart the application or exit.
     """
     while True:
-        choice = input("Do you want to restart the application or exit? '1)restart' or '2)exit' : ").lower().strip()
+        choice = input("\nDo you want to restart the application or exit? 1)restart  2)exit : ").lower().strip()
         if choice == "1":
             return True
         elif choice == "2":

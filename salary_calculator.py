@@ -1,6 +1,6 @@
 from validation import validate_input
 import spreadsheet_operations as sp_ops
-from ui_helpers import clear_screen, print_centered_box, welcome_message, print_user_data_table
+from ui_helpers import clear_screen, print_centered_box, welcome_message, print_user_data_table, print_with_delay
 
 def get_user_type():
     """
@@ -114,14 +114,15 @@ def calculate_net_salary(remaining_salary):
 
         # Display counties to the user
         clear_screen()
-        print("\nEach county features a distinct tax rate. Please select your county from the following list:")
+        print_with_delay("Each county features a distinct tax rate. Please select your county from the following list:", delay=0.06)
+        print_with_delay("\n--------------------------------------------------------------------------------------------", delay=0.06)
         for index, (county, _) in enumerate(counties_data, start=1):
             print(f"{index}. {county}")
 
         # Get and validate user's county choice
         while True:
             try:
-                county_choice_input = input("Select your county by entering the corresponding number: ")
+                county_choice_input = input("\nSelect your county by entering the corresponding number: ")
                 county_choice = validate_input(county_choice_input,"choice" ,len(counties_data))
                 break
             except ValueError as e:

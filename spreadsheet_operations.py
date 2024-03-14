@@ -52,7 +52,7 @@ def reset_spreadsheet(worksheet_name):
     
     worksheet = SHEET.worksheet(worksheet_name)        
     worksheet.clear()
-    print("\033[32m" + "Spreadsheet has been reset." + "\033[0m")
+    print("\033[32m" + "\nSpreadsheet has been reset." + "\033[0m")
     
 def print_all_user_calculated_data():
     """

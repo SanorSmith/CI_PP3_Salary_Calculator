@@ -6,7 +6,7 @@ def clear_screen():
     """
     os.system('clear')
 
-def print_with_delay(text, delay=0.01):
+def print_with_delay(text, delay=0.03):
     """
     Prints text with a delay after each character.
 
