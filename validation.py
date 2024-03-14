@@ -25,10 +25,9 @@ def validate_input(input_value, validation_type, max_value=None):
     
     #Validate the salary amount.
     elif validation_type == "salary":
-        salary = int(input_value)
-        if salary < 0:
-            raise ValueError("\033[31m" + "Salary cannot be negative." + "\033[0m")
-        return salary
+        if not input_value.isdigit() or int(input_value) < 0:
+            raise ValueError("\033[31m" + "Please enter a valid integer number for salary. It cannot be negative." + "\033[0m")
+        return int(input_value)
 
     #Validate the user's job and county choices inputs
     elif validation_type == "choice":
