@@ -1,1 +1,1 @@
-[Visit live website](https://salary-calculater-2dcdcf65c7ea.herokuapp.com/)
+[Visit live website](https://salary-calculater-2dcdcf65c7ea.herokuapp.com//)

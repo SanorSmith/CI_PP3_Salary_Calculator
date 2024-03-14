@@ -39,14 +39,13 @@ def welcome_message():
     message = (
         "Welcome to the Salary Calculator program.\n\n"
         "This application assists individuals in computing\n"
-        "their monthly/daily net income by utilizing mathematical\n"
+        "their monthly net income by utilizing mathematical\n"
         "formulas and tax data. It simplifies the process of\n"
         "calculating monthly salaries and provides accurate\n"
         "tax amounts based on county tax tables.\n\n"
         "Let's get started!"
     )   
-    print_centered_box(message)
-    print("")    
+    print_centered_box(message)    
     
 def print_user_data_table(output_details):
     """

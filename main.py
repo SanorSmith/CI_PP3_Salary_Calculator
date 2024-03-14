@@ -15,32 +15,36 @@ def ask_restart_or_exit():
         else:
             print("Invalid input. Please type '1) restart' or '2) exit' : ")
 
+def restart_exit():
+    """
+    Clear the screen and then exit or restart
+    """
+    if not ask_restart_or_exit():                
+        exit()
+    else:
+        main() 
 
 def main(): 
     while True:
         sc.clear_screen()
         sc.welcome_message()        
-        is_new_user = user_register.ask_the_user("Have you used Salary Calculator before? (yes/no): ")
+        is_not_new_user = user_register.ask_the_user("Have you used Salary Calculator before? (yes/no): ")
         sc.clear_screen()
         sc.welcome_message()
-        if not is_new_user or not user_register.check_returning_user():
+        if is_not_new_user:
+            user_register.check_returning_user()
+            response = user_register.ask_the_user("Do you want to preceed to Salary Calculator? (yes/no): ")
+            if not response:
+                restart_exit()
+
+        else :            
             response = user_register.ask_the_user("Would you like to register? (yes/no): ")
             if response:
-                user_register.register_user()
-        else:
-            response = user_register.check_returning_user()
-            if not response : 
-                sc.clear_screen()
-                if not ask_restart_or_exit():
-                    break
-                else:
-                    main()
-            else :
-               user_register.register_user() 
-        
-        
+                    user_register.register_user()
+            else:           
+                restart_exit()
         sc.clear_screen()
-        sc.welcome_message()
+        sc.welcome_message()      
         user_type = sc.get_user_type()
         if user_type == '2':
             num_employees = sc.get_number_of_employees()            
