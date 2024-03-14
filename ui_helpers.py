@@ -6,7 +6,7 @@ def clear_screen():
     """
     os.system('clear')
 
-def print_with_delay(text, delay=0.00):
+def print_with_delay(text, delay=0.01):
     """
     Prints text with a delay after each character.
 
@@ -27,10 +27,10 @@ def print_centered_box(message, width=60):
     lines = str(message).split('\n')
     centered_lines = [line.strip().center(width - 4) for line in lines]
     separator = '+' + '-' * (width - 2) + '+'
-    print_with_delay(separator)
+    print(separator)
     for line in centered_lines:
-        print_with_delay('| ' + line + ' |')
-    print_with_delay(separator)
+        print('| ' + line + ' |')
+    print(separator)
     
 def welcome_message():
     """
@@ -39,7 +39,7 @@ def welcome_message():
     message = (
         "Welcome to the Salary Calculator program.\n\n"
         "This application assists individuals in computing\n"
-        "their monthly net income by utilizing mathematical\n"
+        "their monthly/daily net income by utilizing mathematical\n"
         "formulas and tax data. It simplifies the process of\n"
         "calculating monthly salaries and provides accurate\n"
         "tax amounts based on county tax tables.\n\n"
