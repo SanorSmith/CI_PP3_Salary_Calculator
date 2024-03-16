@@ -127,3 +127,41 @@ Using the Salary Calculator involves several steps, providing a user-friendly ex
 - Continued Interaction: The app ensures that you are continually guided through correct input until the desired action is completed.
 
 Throughout this process, the Salary Calculator is designed to be intuitive and user-friendly, guiding users through each step with clear instructions and prompts, ensuring a smooth experience from beginning to end.
+
+</details>
+
+[Back to Table Of Contents](#table-of-contents)
+
+## User Stories
+
+### Users
+
+1. **As an individual employee**, I want to be able to calculate my net salary after taxes and deductions, so that I can understand my take-home pay and manage my personal finances better.
+
+2. **As a small business owner**, I need to quickly calculate the salaries for my few employees, including tax deductions, so that I can ensure accurate and timely payroll.
+
+3. **As a returning user**, I want the application to remember my details, so that I don't have to re-enter my information every time I use the app.
+
+4. **As an HR professional in a large company**, I need to process salaries for multiple employees efficiently, so that the payroll process is streamlined and error-free.
+
+5. **As a new user**, I want to easily register and understand how to use the application, so that I can start calculating salaries without a steep learning curve.
+
+6. **As a user concerned about privacy**, I want to ensure that my financial information is securely handled and stored, so that I have peace of mind about my data’s safety.
+
+7. **As a user who is not very tech-savvy**, I need an easy-to-navigate interface, so that I can use the application without feeling overwhelmed or confused.
+
+8. **As a financial advisor**, I want to use this tool to provide salary calculation services to my clients, so that I can offer them accurate financial advice.
+
+9. **As a user who makes occasional mistakes in data entry**, I want the application to effectively handle errors and guide me in correcting them, so that I can trust the accuracy of the calculations.
+
+10. **As a student studying finance**, I want to use this application to understand salary structures and tax implications, so that I can apply this knowledge in my studies and future career.
+
+### Site Owner
+
+1. **Engagement**: Monitor and improve user interaction to enhance retention.
+2. **Updates**: Regularly refine the app based on user feedback and new tech.
+3. **Security**: Prioritize user data protection to maintain trust.
+4. **Support**: Offer prompt, helpful customer service for user inquiries.
+5. **Marketing**: Implement strategies to attract diverse users, including businesses.
+6. **Performance**: Ensure smooth, efficient app functionality for a seamless experience.
+7. **Analytics**: Use data insights to tailor and optimize the app's features.
