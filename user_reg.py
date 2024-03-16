@@ -111,3 +111,4 @@ def is_email_registered(email):
     except Exception as e:
         print(f"An error occurred: {e}")
         return False
+    
