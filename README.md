@@ -465,3 +465,15 @@ The following flowchart summarises the structure and logic of the application.
 | ------------- | ----------------------------- | ---------------------------- | ----------------- |
 | Farewell Message | Choose to exit the application. | Farewell message displayed. | Works as expected |
 
+[Back to Table Of Contents](#table-of-contents)
+## Bugs
+
+| **Bug** | **Fix** |
+| ------- | ------- |
+| In register_user() function in user_reg.py, if the user chooses not to proceed after registration, the application should exit if the user chooses not to restart. However, the main() function is called instead of exit(). | Replace main() with exit() in the else block after the registration process. |
+| In check_returning_user() function in user_reg.py, the function continues executing even after finding the email, which could lead to unexpected behavior. | Add a return statement after printing the welcome message. |
+|  In calculate_net_salary() function in salary_calculator.py, the line county_choice = validate_input(county_choice_input,"choice" ,len(counties_data)) does not handle the case where county_choice_input is empty. | Add a condition to check if county_choice_input is empty before validating. |
+|  In validate_email() function in user_reg.py, the regular expression for email validation may not cover all valid email formats. | Update the regular expression to cover more email formats |
+|  In push_data_to_spreadsheet() function in spreadsheet_operations.py, there's no error handling for the case where the spreadsheet update fails. | Add error handling to catch exceptions and print an error message. |
+|  In get_user_input() function in salary_calculator.py, the function doesn't handle the case where the user enters non-numeric values for salary input. | Add validation to ensure that the user enters numeric values for salary input. |
+
