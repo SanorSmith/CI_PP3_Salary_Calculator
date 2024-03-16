@@ -2,6 +2,9 @@ import salary_calculator as sc
 import spreadsheet_operations as sp_ops
 import user_reg as user_register
 import ui_helpers as ui_h
+import logo as screen
+
+
 def ask_restart_or_exit():
     """
     Asks the user if they want to restart the application or exit.
@@ -24,8 +27,15 @@ def restart_exit():
     else:
         main() 
 
+def press_any_key_to_continue():
+    input("Press Enter to continue...")
+
+
 def main(): 
     while True:
+        sc.clear_screen()
+        screen.logo()
+        press_any_key_to_continue()
         sc.clear_screen()
         sc.welcome_message()        
         is_not_new_user = user_register.ask_the_user("Have you used Salary Calculator before? (yes/no): ")
