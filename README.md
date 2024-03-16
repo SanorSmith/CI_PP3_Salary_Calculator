@@ -518,3 +518,30 @@ The Application has been deployed from GitHub to Heroku by following the steps:
     <details><summary>Screenshot</summary>
     <img src="docs/deployment/heroku-view.jpg">
     </details>
+
+#### How to Create a Fork of a Repository
+You can create a fork of the repository by following these steps:
+1. Go to the GitHub repository for the project [Salary_Calculator](https://github.com/SanorSmith/CI_PP3_Salary_Calculator).
+2. In the upper right-hand corner, locate the "Fork" button and click on it. 
+
+
+#### How to Clone
+
+Here are the steps to clone a GitHub repository:
+
+1. Navigate to GitHub repository [Salary_Calculator](https://github.com/SanorSmith/CI_PP2_Tic_Tac) .
+
+2. Find the "Code" green button above the file list, and click on it.
+
+3. Choose your preferred cloning method (HTTPS, SSH, or GitHub CLI) and click the copy button to copy the URL to your clipboard.
+
+4. Open Git Bash.
+
+5. Change your current working directory to the location where you want to create the cloned directory.
+
+6. Enter the command "git clone" and paste the copied URL from the clipboard (e.g., $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY).
+
+7. Press Enter to initiate the creation of your local clone.
+
+[Back to Table Of Contents](#table-of-contents)
+
