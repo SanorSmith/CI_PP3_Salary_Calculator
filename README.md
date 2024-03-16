@@ -1,4 +1,4 @@
-# Salary Calculator[Visit live website](https://salary-calculater-2dcdcf65c7ea.herokuapp.com//)
+# Salary Calculator [Visit live website](https://salary-calculater-2dcdcf65c7ea.herokuapp.com//)
 
 **Developer: Sanor Smith**
 
@@ -79,3 +79,51 @@ Salary Calculator is an innovative and user-centric application developed with t
 - Ease of Use: A user-friendly interface that is easy to navigate, even for those with limited technical skills.
 - Data Security: Assurance that all personal and financial information entered is securely handled and stored.
 - Speed and Efficiency: Quick processing and generation of results without long waiting times.
+
+### User Manual
+
+<details><summary>Click here to view instructions</summary>
+
+Using the Salary Calculator involves several steps, providing a user-friendly experience from start to finish. Here's a detailed guide on how a user would typically use the application:
+
+#### Starting the Application
+
+- Launch: Begin by running main.py. The application opens with the Salary Calculator logo, setting the professional tone of the tool.
+- Proceed: Press Enter to move from the logo screen to the main menu.
+
+#### Welcome and User Identification
+
+- New or Returning User: The first prompt asks if you've used the Salary Calculator before. Answer "yes" or "no".
+- Registration (for New Users): If you're new, you'll be guided to register. Input your name and email. A confirmation message will appear upon successful registration.
+- Login (for Returning Users): If you're a returning user, input your email. A welcome back message is displayed for recognized emails.
+
+#### Choosing the User Type
+
+- Select User Type: You'll choose between an individual or a company. This tailors the experience to your needs.
+
+#### Input Salary Details
+
+- Data Entry for Individuals: Enter your name, the number of working days, and your daily salary.
+- Data Entry for Companies: If you represent a company, input the number of employees first. Then, repeat the individual data entry process for each employee.
+
+#### VAT and Salary Calculation
+
+- Selection of Job Category and County: You will choose your job category and county from given lists, which are used to calculate VAT and local taxes.
+- Automatic Calculations: The app calculates total salary, VAT, taxes, and net salary based on the provided information.
+
+#### Reviewing the Results
+
+- Result Display: A detailed breakdown of the salary calculation, including deductions, is shown.
+- Printing Option (for Companies): Companies have the option to print the salary summary for record-keeping.
+
+#### Restarting or Exiting
+
+- Decision Point: After viewing the results, decide whether to restart the application for a new calculation or exit.
+- Restart or Exit: Choose "restart" to perform another calculation or "exit" to close the application. A farewell message is displayed if you're exiting.
+
+#### Error Handling and Correction
+
+- Invalid Inputs: If an invalid entry is made, the application prompts for correction, guiding you to provide the valid input.
+- Continued Interaction: The app ensures that you are continually guided through correct input until the desired action is completed.
+
+Throughout this process, the Salary Calculator is designed to be intuitive and user-friendly, guiding users through each step with clear instructions and prompts, ensuring a smooth experience from beginning to end.
