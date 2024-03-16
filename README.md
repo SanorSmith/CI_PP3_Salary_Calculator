@@ -165,3 +165,44 @@ Throughout this process, the Salary Calculator is designed to be intuitive and u
 5. **Marketing**: Implement strategies to attract diverse users, including businesses.
 6. **Performance**: Ensure smooth, efficient app functionality for a seamless experience.
 7. **Analytics**: Use data insights to tailor and optimize the app's features.
+
+[Back to Table Of Contents](#table-of-contents)
+
+## Technical Design
+
+### Flowchart
+
+The following flowchart summarises the structure and logic of the application.
+
+<details><summary>Flowchart</summary>
+<img src="docs/">
+</details>
+
+## Technologies Used
+
+### Languages
+
+- [Python](https://www.python.org/) programming language for the logic of the program
+
+### Frameworks & Tools
+
+- [Visual Studio Code (VSCode)](https://code.visualstudio.com/) Visual Studio Code (VSCode) served as the primary integrated development environment (IDE).
+- [GitHub](https://github.com/) GitHub functioned as the remote repository for storing project code.
+- [Font Awesome](https://fontawesome.com/) Font Awesome icons were integrated into the footer beneath the program terminal.
+- [Heroku](https://id.heroku.com//)  Heroku facilitated the deployment of the project into a live environment.
+- [Google Cloud Platform](https://cloud.google.com/cloud-console/) Google Cloud Platform managed access and permissions for various Google Services such as Google auth and sheets
+- [PEP8](http://pep8online.com/) PEP8 was utilized for ensuring adherence to Python coding conventions.
+- [Diagrams.net](https://app.diagrams.net/) Diagrams.net was employed for creating the program flowchart.
+- [Google Sheets](https://workspace.google.com/intl/en/products/sheets/) Google Sheets stored player details.
+- [PEP8](http://pep8online.com/) was used to check my code against Python conventions
+
+#### Python Libraries
+- os - Used for system operations, particularly to clear the terminal screen.
+- re: Employed for regular expression operations, particularly for email validation.
+- time - Utilized for time-related operations, such as introducing delays in printing messages
+
+#### Third Party Libraries
+- [gspread](https://docs.gspread.org/en/latest/) - JUSTIFICATION: I used gspread to add and manipulate data in my Google spreadsheet and to interact with Google APIs
+- [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - Library, which provides functionality for authenticating with Google APIs using service accounts.
+
+[Back to Table Of Contents](#table-of-contents)
