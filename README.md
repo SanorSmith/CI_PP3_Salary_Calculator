@@ -191,10 +191,9 @@ The following flowchart summarises the structure and logic of the application.
 - [Font Awesome](https://fontawesome.com/) Font Awesome icons were integrated into the footer beneath the program terminal.
 - [Heroku](https://id.heroku.com//)  Heroku facilitated the deployment of the project into a live environment.
 - [Google Cloud Platform](https://cloud.google.com/cloud-console/) Google Cloud Platform managed access and permissions for various Google Services such as Google auth and sheets
-- [PEP8](http://pep8online.com/) PEP8 was utilized for ensuring adherence to Python coding conventions.
 - [Diagrams.net](https://app.diagrams.net/) Diagrams.net was employed for creating the program flowchart.
 - [Google Sheets](https://workspace.google.com/intl/en/products/sheets/) Google Sheets stored player details.
-- [PEP8](http://pep8online.com/) was used to check my code against Python conventions
+- [PEP8](http://pep8ci.herokuapp.com//) PEP8 was utilized for ensuring adherence to Python coding conventions.
 
 #### Python Libraries
 - os - Used for system operations, particularly to clear the terminal screen.
@@ -369,3 +368,4 @@ The following flowchart summarises the structure and logic of the application.
 
 ![Validation](docs/features/validation-2.jpg)
 </details>
+
