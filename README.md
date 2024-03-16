@@ -311,7 +311,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>User input type 1</summary>
 
-![input-typs](docs/features/input-typs.jpg)
+![input-typs](docs/features/input-typs-1.jpg)
 </details>
 
 <details>
