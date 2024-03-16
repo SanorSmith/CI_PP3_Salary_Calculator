@@ -369,3 +369,38 @@ The following flowchart summarises the structure and logic of the application.
 ![Validation](docs/features/validation-2.jpg)
 </details>
 
+[Back to Table Of Contents](#table-of-contents)
+
+## Validation
+
+[PEP8 Validation Service](https://pep8ci.herokuapp.com/#) was used to check the code for PEP8 requirements. All the code passes with no errors and no warnings to show.
+
+<details><summary>PEP3 check for main.py</summary>
+<img src="docs/validation/main_py_validation.jpg">
+</details>
+
+<details><summary>PEP3 check for user_reg.py</summary>
+<img src="docs/validation/user_reg_py_validation.jpg">
+</details>
+
+<details><summary>PEP3 check for validation.py</summary>
+<img src="docs/validation/validation_py_validation.jpg">
+</details>
+
+<details><summary>PEP3 check for user_reg.py</summary>
+<img src="docs/validation/user_reg_py_validation.jpg">
+</details>
+
+<details><summary>PEP3 check for ui_helpers.py</summary>
+<img src="docs/validation/ui_helpers_py_validation.jpg">
+</details>
+
+<details><summary>PEP3 check for spreadsheet_operations.py</summary>
+<img src="docs/validation/spreadsheet_operations_py_validation.jpg">
+</details>
+
+<details><summary>PEP3 check for logo.py</summary>
+<img src="docs/validation/logo_py_validation.jpg">
+</details>
+
+
