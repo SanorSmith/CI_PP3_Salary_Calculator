@@ -1,5 +1,7 @@
 from config import SHEET
 from ui_helpers import print_user_data_table, print_with_delay
+
+
 def push_data_to_spreadsheet(name, salary_data):
     """
     Function to push data to the spreadsheet using append_row.
@@ -15,11 +17,12 @@ def push_data_to_spreadsheet(name, salary_data):
     except Exception as e:
         print(f"An error occurred: {e}")
         
+
 def sum_salary_from_spreadsheet():
     """
     Function to sum up salary data from the spreadsheet.
     """
-    
+
     worksheet = SHEET.worksheet('operation_table')
     data = worksheet.get_all_values()
 
@@ -28,6 +31,7 @@ def sum_salary_from_spreadsheet():
         total_salary += sum(int(value) for value in row[1:] if value.isdigit())
 
     return total_salary
+
 
 def push_all_u_c_data(output_details):
     """
@@ -45,6 +49,7 @@ def push_all_u_c_data(output_details):
     except Exception as e:
         print(f"An error occurred while updating the spreadsheet: {e}")
 
+
 def reset_spreadsheet(worksheet_name):
     """
     Function to reset the spreadsheet by clearing all its contents.
@@ -54,6 +59,7 @@ def reset_spreadsheet(worksheet_name):
     worksheet.clear()
     print("\033[32m" + "\nSpreadsheet has been reset." + "\033[0m")
     
+
 def print_all_user_calculated_data():
     """
     Reads and prints all data from the 'all_users_calculated_data' worksheet in a formatted table.

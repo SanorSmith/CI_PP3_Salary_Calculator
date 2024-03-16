@@ -1,11 +1,13 @@
 
 import os,time
 
+
 def clear_screen():
     """
     Clears the terminal screen.
     """
     os.system('clear')
+
 
 def print_with_delay(text, delay=0.03):
     """
@@ -18,6 +20,7 @@ def print_with_delay(text, delay=0.03):
         print(char, end='', flush=True)
         time.sleep(delay)
     print()  
+
 
 def print_centered_box(message, width=60):
     """
@@ -33,6 +36,7 @@ def print_centered_box(message, width=60):
         print('| ' + line + ' |')
     print(separator)
     
+
 def welcome_message():
     """
     Function to display a welcome message to the user.
@@ -48,6 +52,7 @@ def welcome_message():
     )   
     print_centered_box(message)    
     
+
 def print_user_data_table(output_details):
     """
     Prints user data in a formatted table.

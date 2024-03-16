@@ -2,6 +2,7 @@ from validation import validate_input
 import spreadsheet_operations as sp_ops
 from ui_helpers import clear_screen, print_centered_box, welcome_message, print_user_data_table, print_with_delay
 
+
 def get_user_type():
     """
     Asks the user if they are a single individual or a company with multiple employees.
@@ -53,6 +54,7 @@ def get_user_input(user_type, emp_num=None):
 
     return name, salary_data
         
+
 def get_number_of_employees():
     """
     Asks the user for the number of people who will be entering their salary details.
@@ -67,6 +69,7 @@ def get_number_of_employees():
                 print("\033[31m" + "Please enter a positive number." + "\033[0m")
         except ValueError:
             print("\033[31m" + "Invalid input. Please enter a whole number." + "\033[0m")
+
 
 def calculate_vat_and_salary(total_salary):
     """
@@ -99,7 +102,6 @@ def calculate_vat_and_salary(total_salary):
         
     except Exception as e:
         print(f"An error occurred: {e}")
-        
         
 
 def calculate_net_salary(remaining_salary):
@@ -140,6 +142,7 @@ def calculate_net_salary(remaining_salary):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+
 def processing_data_input_output(user_type, emp_num=None):
     """
     Function to process user input and calculate output 
@@ -168,6 +171,7 @@ def processing_data_input_output(user_type, emp_num=None):
     else:
         print_user_data_table(output_details)
     return name
+
 
 def ask_print_results():
     """

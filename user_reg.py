@@ -3,6 +3,7 @@ from main import ask_restart_or_exit, main
 import ui_helpers as ui_h
 import re
 
+
 def validate_email(email):
     """
     Validates an email address to ensure it follows the user_email@domain.com format.
@@ -15,6 +16,7 @@ def validate_email(email):
     """
     email_regex = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
     return re.match(email_regex, email) is not None
+
 
 def ask_the_user(prompt):
     """
@@ -72,6 +74,7 @@ def register_user():
     except Exception as e:
         print(f"An error occurred while registering: {e}")
 
+
 def check_returning_user():
     """
     Checks if a returning user's email is in the worksheet and displays a welcome message.
@@ -96,6 +99,7 @@ def check_returning_user():
         return False  # Email not found, user is not registered
     except Exception as e:
         print(f"An error occurred while checking user: {e}")
+
 
 def is_email_registered(email):
     """

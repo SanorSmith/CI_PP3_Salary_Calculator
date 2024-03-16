@@ -1,5 +1,3 @@
-#Validate User input data function 
-
 def validate_input(input_value, validation_type, max_value=None):
     """
     General purpose input validation function.

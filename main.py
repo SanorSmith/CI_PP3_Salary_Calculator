@@ -18,6 +18,7 @@ def ask_restart_or_exit():
         else:
             print("Invalid input. Please type '1) restart' or '2) exit' : ")
 
+
 def restart_exit():
     """
     Clear the screen and then exit or restart
@@ -26,6 +27,7 @@ def restart_exit():
         exit()
     else:
         main() 
+
 
 def press_any_key_to_continue():
     input("Press Enter to continue...")
@@ -81,6 +83,7 @@ def main():
     sc.clear_screen()
     sc.welcome_message()    
     ui_h.print_with_delay("Thank you for using the application!")
+
 
 if __name__ == "__main__":
     main()
