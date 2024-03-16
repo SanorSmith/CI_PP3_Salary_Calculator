@@ -2,7 +2,7 @@
 
 **Developer: Sanor Smith**
 
-![Mockup image](docs/screenshot-home.JPG)
+![Mockup image](docs/screenshot-home.jpg)
 
 ## About
 
@@ -217,7 +217,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>Weelcome screen Screenshot</summary>
 
-![Welcom screen](docs/features/welcome-screen.JPG)
+![Welcom screen](docs/features/welcome-screen.jpg)
 </details>
 
 ### Welcome Message:
@@ -229,7 +229,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>Game rules Screenshot</summary>
 
-![usercheck](docs/features/user-check.JPG)
+![usercheck](docs/features/user-check.jpg)
 </details>
 
 ### Returning User Check & Option Selection:
@@ -241,7 +241,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>Existing user Screenshot</summary>
 
-![Existing user](docs/features/exist-user.JPG)
+![Existing user](docs/features/exist-user.jpg)
 </details>
 
 ### User Registration:
@@ -253,7 +253,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>New user Screenshot</summary>
 
-![New user](docs/features/new-user.JPG)
+![New user](docs/features/new-user.jpg)
 </details>
 
 
@@ -264,19 +264,19 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>User types screen Screenshot</summary>
 
-![User type](docs/features/user-type.JPG)
+![User type](docs/features/user-type.jpg)
 </details>
 
 <details>
     <summary>For single Individual users screen Screenshot</summary>
 
-![Singl users](docs/features/user-type.JPG)
+![Singl users](docs/features/user-type.jpg)
 </details>
 
 <details>
     <summary>For company users screen</summary>
 
-![Company](docs/features/no-of-employees.JPG)
+![Company](docs/features/no-of-employees.jpg)
 </details>
 
 #### Salary Calculation:
@@ -311,13 +311,13 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>User input type 1</summary>
 
-![input-typs](docs/features/input-typs.JPG)
+![input-typs](docs/features/input-typs.jpg)
 </details>
 
 <details>
     <summary>User input type 2</summary>
 
-![input-typs](docs/features/input-typs-2.JPG)
+![input-typs](docs/features/input-typs-2.jpg)
 </details>
 
 ### Data Storage Notification: 
@@ -342,7 +342,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>Output Results Screenshot</summary>
 
-![Output Results](docs/features/output-results.JPG)
+![Output Results](docs/features/output-results.jpg)
 </details>
 
 #### Restart or Exit: 
@@ -351,7 +351,7 @@ The following flowchart summarises the structure and logic of the application.
 <details>
     <summary>Exit Restart Screenshot</summary>
 
-![Exit Restart](docs/features/exit-restart.JPG)
+![Exit Restart](docs/features/exit-restart.jpg)
 </details>
 
 
