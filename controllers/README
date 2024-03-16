@@ -206,3 +206,166 @@ The following flowchart summarises the structure and logic of the application.
 - [google.oauth2.service_account](https://google-auth.readthedocs.io/en/master/) - Library, which provides functionality for authenticating with Google APIs using service accounts.
 
 [Back to Table Of Contents](#table-of-contents)
+
+## Features
+
+### Welcome Screen :
+
+- Displays a graphical representation of the program's logo.
+- Provides a visual identifier for the application.
+ 
+<details>
+    <summary>Weelcome screen Screenshot</summary>
+
+![Welcom screen](docs/features/welcome-screen.JPG)
+</details>
+
+### Welcome Message:
+
+- A textual greeting displayed to the user upon starting the program.
+- Introduces the purpose and functionality of the application.
+- The user is asked if they have used the app before through the following prompt:
+  
+<details>
+    <summary>Game rules Screenshot</summary>
+
+![usercheck](docs/features/user-check.JPG)
+</details>
+
+### Returning User Check & Option Selection:
+
+- Returning users can verify their identity by providing their email address.
+- Greeting message shows for returnings users.
+- Users can choose whether to proceed with the salary calculation or exit the application.
+
+<details>
+    <summary>Existing user Screenshot</summary>
+
+![Existing user](docs/features/exist-user.JPG)
+</details>
+
+### User Registration:
+
+- Users can register by providing their name and email address.
+- Registration data is stored in a spreadsheet for future reference.
+- The application will verify whether the entered email has been previously registered and will display suitable messages to notify the user.
+- Users can choose whether to proceed using the registered email or not.
+<details>
+    <summary>New user Screenshot</summary>
+
+![New user](docs/features/new-user.JPG)
+</details>
+
+
+### Type of Users:
+- The application initiates once the user's email address is verified.
+- Prompting the user to select their user type, either individual or company.
+
+<details>
+    <summary>User types screen Screenshot</summary>
+
+![User type](docs/features/user-type.JPG)
+</details>
+
+<details>
+    <summary>For single Individual users screen Screenshot</summary>
+
+![Singl users](docs/features/user-type.JPG)
+</details>
+
+<details>
+    <summary>For company users screen</summary>
+
+![Company](docs/features/no-of-employees.JPG)
+</details>
+
+#### Salary Calculation:
+
+- Users can input salary data for individual employees or for multiple employees.
+- The application calculates the total salary, VAT, and net salary based on user input.
+- Different tax rates are applied based on the user's job category and county of residence.
+
+<details>
+    <summary>Salary calculation 1 Screenshot</summary>
+
+![Calculation](docs/features/salary-calc-1.jpg)
+</details>
+
+<details>
+    <summary>Salary calculation 2 Screenshot</summary>
+
+![Calculation](docs/features/salary-calc-2.jpg)
+</details>
+
+<details>
+    <summary>Salary calculation 3 Screenshot</summary>
+
+![Calculation](docs/features/salary-calc-3.jpg)
+</details>
+
+
+### User input types: 
+
+- The app features two distinct types of input: a comprehensive input prompt where details like name, salary, email address, and number of days are entered, and an alternative selecting prompt input, which involves reading information from the terminal and choosing the corresponding option number
+
+<details>
+    <summary>User input type 1</summary>
+
+![input-typs](docs/features/input-typs.JPG)
+</details>
+
+<details>
+    <summary>User input type 2</summary>
+
+![input-typs](docs/features/input-typs-2.JPG)
+</details>
+
+### Data Storage Notification: 
+
+- The app features a function that sends notifications to the user via the terminal each time it saves data to the spreadsheet, providing assurance  that the data has not been lost
+- The application may store the calculated salary details, along with other user information, in a spreadsheet for future reference.
+- The application interacts with Google Sheets to store and retrieve user registration data, salary details, and calculated results.
+- Data is organized into different worksheets for better management.
+
+<details>
+    <summary>updating notification Screenshot</summary>
+
+![Updating Notification](docs/features/updating-notification.jpg)
+</details>
+
+
+### Display the results on the terminal:
+
+- The calculated salary details, including the total salary, VAT amount, tax amount, and net salary, are displayed to the user.
+- The application may present this information in a formatted table for easy comprehension.
+
+<details>
+    <summary>Output Results Screenshot</summary>
+
+![Output Results](docs/features/output-results.JPG)
+</details>
+
+#### Restart or Exit: 
+- "After finishing a task or when the user decides not to continue with the current action, they have the option to either restart the application or exit."
+
+<details>
+    <summary>Exit Restart Screenshot</summary>
+
+![Exit Restart](docs/features/exit-restart.JPG)
+</details>
+
+
+#### Data Validation:
+- The application validates the user input to ensure it meets the required format and criteria. This includes validating the name, number of days, email's format, and salary amount provided by the user.
+
+<details>
+    <summary>Data Validation e-mails screenshot</summary>
+
+![Validation](docs/features/validation-1.jpg)
+</details>
+
+<details>
+    <summary>Data Validation Name, days, Salary amount screenshot</summary>
+
+![Validation](docs/features/validation-2.jpg)
+</details>
