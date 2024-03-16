@@ -477,3 +477,44 @@ The following flowchart summarises the structure and logic of the application.
 |  In push_data_to_spreadsheet() function in spreadsheet_operations.py, there's no error handling for the case where the spreadsheet update fails. | Add error handling to catch exceptions and print an error message. |
 |  In get_user_input() function in salary_calculator.py, the function doesn't handle the case where the user enters non-numeric values for salary input. | Add validation to ensure that the user enters numeric values for salary input. |
 
+## Deployment
+
+### Heroku
+<hr>
+The Application has been deployed from GitHub to Heroku by following the steps:
+
+1. Create or log in to your account at heroku.com
+    <details><summary>Screenshot</summary>
+    <img src="docs/deployment/heroku-login.jpg">
+    </details>
+
+2. Create a new app, add a unique app name ( for example app-name) and then choose your region
+3. Click on create app
+    <details><summary>Screenshot</summary>
+    <img src="docs/deployment/heroku-new-app.jpg">
+    </details>
+
+4. Navigate to the "Settings" section.
+5. In the "Config Vars" tab, securely store any sensitive data previously saved in a .json file. In the "Key" field, enter the name associated with the data, then copy the contents of the .json file and paste it into the "Value" field. Additionally, include a key named 'PORT' with the value '8000'.
+
+    <details><summary>Screenshot</summary>
+    <img src="docs/deployment/heroku-conf-var.jpg">
+    </details>
+
+6. Specify the necessary buildpacks (additional dependencies) for your project. Arrange them in a way that prioritizes Python at the top and Node.js at the bottom.
+    <details><summary>Screenshot</summary>
+    <img src="docs/deployment/heroku-buildpack.jpg">
+    </details>
+
+7. Navigate to the "Deploy" section and choose "GitHub" as your preferred "Deployment method".
+8. To link your Heroku app with your GitHub repository, input your repository name, and proceed by clicking on 'Search'. Once your repository appears below, select 'Connect' to establish the connection.
+    <details><summary>Screenshot</summary>
+    <img src="docs/deployment/heroku-deploy.jpg">
+    </details>
+
+9.  Choose the branch you want to buid your app from
+10. If prefered, click on "Enable Automatic Deploys", which keeps the app up to date with your GitHub repository
+11. Wait for the app to build. Once ready you will see the “App was successfully deployed” message and a 'View' button to take you to your deployed link.
+    <details><summary>Screenshot</summary>
+    <img src="docs/deployment/heroku-view.jpg">
+    </details>
