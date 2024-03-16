@@ -114,8 +114,8 @@ def calculate_net_salary(remaining_salary):
 
         # Display counties to the user
         clear_screen()
-        print_with_delay("Each county features a distinct tax rate. Please select your county from the following list:", delay=0.06)
-        print_with_delay("\n--------------------------------------------------------------------------------------------", delay=0.06)
+        print_with_delay("\nEach county features a distinct tax rate. Please select your county from the following list:", delay=0.06)
+        print_with_delay("\n------------------------------------------------------------------------------", delay=0.06)
         for index, (county, _) in enumerate(counties_data, start=1):
             print(f"{index}. {county}")
 
