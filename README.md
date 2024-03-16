@@ -545,3 +545,24 @@ Here are the steps to clone a GitHub repository:
 
 [Back to Table Of Contents](#table-of-contents)
 
+## Credits
+
+### Images
+- [Flaticon](https://www.flaticon.com/free-icon/connect_1707222) was used for the website favicon
+
+### Code
+
+- Code Institute - For the Git template IDE and the 'Love Sandwiches - Essentials Project,' both played instrumental roles in aiding me with the integration of Google Spreadsheet into my project.
+- [ASCII Art Generator](http://patorjk.com/software/taag/) for logo title
+- How to install a Python module, eg. [Py4All, email validation](https://www.youtube.com/watch?v=OwPlvyDxOgU)
+- [gspread documentation](https://www.youtube.com/watch?v=bu5wXjz2KvU) explained how to push and pull data from and to the google spreadsheet
+- Instructions how to validate user input [this](https://www.youtube.com/watch?v=LUWyA3m_-r0)
+- [Dan Leeman](https://www.youtube.com/watch?v=YT2rzhe_dRY) Adding Delays with Time Sleep
+
+## Acknowledgements
+
+***
+I'd like to take a moment to express my gratitude to the individuals listed below: 
+- I would like to express my gratitude to my mentor, Mo Shami, for providing valuable feedback, offering advice, providing guidance, and offering unwavering support.
+- I want thank my wife, Sharmen, for her unwavering support and understanding throughout the development of this project.
+- To the wonderful people within the Code Institute Slack community who generously offer peer code reviews.
