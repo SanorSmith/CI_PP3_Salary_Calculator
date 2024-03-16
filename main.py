@@ -42,16 +42,22 @@ def main():
         sc.clear_screen()
         sc.welcome_message()
         if is_not_new_user:
-            user_register.check_returning_user()
-            response = user_register.ask_the_user("Do you want to preceed to Salary Calculator? (yes/no): ")
-            if not response:
-                restart_exit()
-
-        else :            
+            email_found=user_register.check_returning_user()
+            if email_found :
+                response = user_register.ask_the_user("Do you want to preceed to Salary Calculator? (yes/no): ")
+                if not response:
+                    restart_exit()
+            else :            
+                response = user_register.ask_the_user("Would you like to register? (yes/no): ")
+                if response:
+                    user_register.register_user()
+                else :
+                    restart_exit()    
+        else :    
             response = user_register.ask_the_user("Would you like to register? (yes/no): ")
             if response:
-                    user_register.register_user()
-            else:           
+                user_register.register_user()
+            else :
                 restart_exit()
         sc.clear_screen()
         sc.welcome_message()      
