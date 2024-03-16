@@ -403,4 +403,65 @@ The following flowchart summarises the structure and logic of the application.
 <img src="docs/validation/logo_py_validation.jpg">
 </details>
 
+## Testing
+
+1. As a user, I want to read a welcome message upon accessing the application.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Read Welcome Message | Access the welcome message | Displays a personalized welcome message upon startup, providing an introduction to the application's features and guiding the user on how to proceed. | Works as expected |
+
+2. As a returning user, I want to easily access the application without re-registering.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Return User | Enter registered email and select 'yes' to proceed. | Welcome message displayed. | Works as expected |
+
+3.  As a new user, I want to register with the Salary Calculator application so that I can access personalized features and save my data securely.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| User Registration | Enter name and email, and select 'yes' to proceed. | Registration successful message displayed. | Registration successful message displayed. |
+
+4. As a user, I want the Salary Calculator application to accommodate both individual and company users, ensuring flexibility in usage.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| User Type Selection | Choose '1' for Individual or '2' for Company. | Corresponding interface displayed. | Works as expected |
+
+5. As a company user, I want to enter details for multiple employees in one session, saving time and effort.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Multiple Employee Entry | Enter details for multiple employees. | Details saved and processed accordingly. | Works as expected |
+
+6.  As a user, I want the application to retrieve comprehensive data on county VAT and taxes from spreadsheets for accurate calculations.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Data Retrieval | Access VAT and tax data from spreadsheets. |Data fetched successfully. | Works as expected |
+
+7. As a user, I want the application to save and push large amounts of data to spreadsheets for storage and analysis.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Data Saving and Pushing | Save and push large data sets to spreadsheets | Data saved and pushed without errors. | Works as expected |
+
+8. As a user, I want the application to validate my inputs to ensure I enter correct data such as salary, days, names, and emails.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Input Validation | Enter invalid data (e.g., negative salary) and attempt to proceed. | Error message displayed, preventing invalid inputs. | Works as expected |
+
+9. As a user, I want the option to restart or exit the application in various events to manage my interaction with the program.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Restart or Exit | Choose to restart or exit the application when prompted | Application restarts or exits based on user choice. | Works as expected |
+
+10. As a user, I want the application to display a farewell message when I decide to exit, providing a positive ending to my interaction.
+
+| **Feature**   | **Action**                    | **Expected Result**          | **Actual Result** |
+| ------------- | ----------------------------- | ---------------------------- | ----------------- |
+| Farewell Message | Choose to exit the application. | Farewell message displayed. | Works as expected |
 
