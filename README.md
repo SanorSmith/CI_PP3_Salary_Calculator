@@ -174,9 +174,7 @@ Throughout this process, the Salary Calculator is designed to be intuitive and u
 
 The following flowchart summarises the structure and logic of the application.
 
-<details><summary>Flowchart</summary>
-<img src="docs/">
-</details>
+- [Flowchart (pdf)](docs/flowchart.pdf)
 
 ## Technologies Used
 
